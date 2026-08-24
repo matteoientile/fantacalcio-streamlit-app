@@ -70,20 +70,7 @@ def save_draft_log(log_data):
     with open(DRAFT_LOG_PATH, "w") as f:
         json.dump(log_data, f, indent=2)
 
-# Session state initialization
-if "league_config" not in st.session_state:
-    st.session_state.league_config = load_league_config()
-if "draft_log" not in st.session_state:
-    st.session_state.draft_log = load_draft_log()
-if "confirm_reset" not in st.session_state:
-    st.session_state.confirm_reset = False
-
-TOTAL_TEAMS = st.session_state.league_config.get("num_teams", 12)
-STARTING_BUDGET = st.session_state.league_config.get("starting_budget", 500)
-MANAGERS = st.session_state.league_config.get("managers", DEFAULT_CONFIG["managers"])
-MY_NAME = MANAGERS[0]
-TOTAL_LEAGUE_CREDITS = TOTAL_TEAMS * STARTING_BUDGET
-
+# ----------------- LOAD DATA & SESSION STATE -----------------
 @st.cache_data
 def load_data():
     matches = pd.read_parquet(os.path.join(DATA_DIR, "master_matches.parquet"), engine='fastparquet')
@@ -92,6 +79,21 @@ def load_data():
     return matches, profiles
 
 matches_df, profiles_df = load_data()
+
+if "league_config" not in st.session_state:
+    st.session_state.league_config = load_league_config()
+if "draft_log" not in st.session_state:
+    st.session_state.draft_log = load_draft_log()
+if "confirm_reset" not in st.session_state:
+    st.session_state.confirm_reset = False
+if "selected_player" not in st.session_state:
+    st.session_state.selected_player = profiles_df['Nome'].sort_values().iloc[0]
+
+TOTAL_TEAMS = st.session_state.league_config.get("num_teams", 12)
+STARTING_BUDGET = st.session_state.league_config.get("starting_budget", 500)
+MANAGERS = st.session_state.league_config.get("managers", DEFAULT_CONFIG["managers"])
+MY_NAME = MANAGERS[0]
+TOTAL_LEAGUE_CREDITS = TOTAL_TEAMS * STARTING_BUDGET
 
 # ----------------- LIVE DRAFT CALCULATIONS -----------------
 draft_df = pd.DataFrame(st.session_state.draft_log) if st.session_state.draft_log else pd.DataFrame(columns=["player", "role", "buyer", "price"])
@@ -252,7 +254,6 @@ def log_purchase(player_name, buyer, price):
     st.session_state.draft_log.append(entry)
     save_draft_log(st.session_state.draft_log)
 
-
 # ----------------- MAIN TABS -----------------
 tab1, tab2, tab3, tab4 = st.tabs([
     "📋 Master Listone & Live Logger", 
@@ -263,13 +264,24 @@ tab1, tab2, tab3, tab4 = st.tabs([
 
 # ----------------- TAB 1: MASTER LISTONE & LIVE LOGGER -----------------
 with tab1:
-    # 1. Direct Quick-Logger Input Bar
     st.markdown("### ⚡ Live Call & Quick Logger")
+    
+    def on_tab1_player_change():
+        st.session_state.selected_player = st.session_state.t1_player
+
     available_players = available_profiles_df.sort_values('Nome')
+    t1_options = available_players['Nome'].tolist()
+    t1_idx = t1_options.index(st.session_state.selected_player) if st.session_state.selected_player in t1_options else 0
 
     c_p, c_buyer, c_price, c_btn = st.columns([3, 2, 2, 2])
     with c_p:
-        log_player = st.selectbox("Player Called:", options=available_players['Nome'].tolist(), key="t1_player")
+        log_player = st.selectbox(
+            "Player Called:",
+            options=t1_options,
+            index=t1_idx,
+            key="t1_player",
+            on_change=on_tab1_player_change
+        )
     with c_buyer:
         log_buyer = st.selectbox("Bought By:", options=MANAGERS, key="t1_buyer")
     with c_price:
@@ -299,7 +311,6 @@ with tab1:
             st.success(f"Logged {log_player} to {log_buyer} for {log_price} cr")
             st.rerun()
 
-    # 2. Collapsible / Compact Recent Transactions + Undo
     if not draft_df.empty:
         with st.expander(f"🕒 Recent Auction History ({len(draft_df)} logged)", expanded=False):
             col_table, col_undo = st.columns([5, 1])
@@ -313,7 +324,7 @@ with tab1:
 
     st.markdown("---")
 
-    # 3. Master Undrafted Listone with Sorting and Filters
+    # 3. Master Undrafted Listone
     st.markdown("##### 📋 Complete Undrafted Listone")
     
     c_filter1, c_filter2, c_filter3 = st.columns([1, 1, 2])
@@ -339,12 +350,10 @@ with tab1:
         )
         avail_pool = avail_pool[mask]
 
-    # Calculate live dynamic prices
     prices = avail_pool.apply(lambda r: get_dynamic_prices(r), axis=1)
     avail_pool['Target_cr'] = [p[0] for p in prices]
     avail_pool['Max_cr'] = [p[1] for p in prices]
 
-    # Keep numerical types clean for proper header sorting
     avail_pool['FM_W'] = avail_pool['Fanta_Media_Weighted'].round(2)
     avail_pool['FM_Raw'] = avail_pool.get('Fanta_Media_Raw', avail_pool['Fanta_Media_Weighted']).round(2)
     avail_pool['MV_W'] = avail_pool['Media_Voto_Weighted'].round(2)
@@ -409,9 +418,21 @@ with tab1:
 
 # ----------------- TAB 2: PLAYER HUD -----------------
 with tab2:
+    def on_tab2_player_change():
+        st.session_state.selected_player = st.session_state.t2_player
+
+    all_player_names = profiles_df['Nome'].sort_values().unique().tolist()
+    t2_idx = all_player_names.index(st.session_state.selected_player) if st.session_state.selected_player in all_player_names else 0
+
     col_search, _ = st.columns([2, 1])
     with col_search:
-        selected_player = st.selectbox("Search Target Player:", options=profiles_df['Nome'].sort_values().unique(), key="t2_player")
+        selected_player = st.selectbox(
+            "Search Target Player:",
+            options=all_player_names,
+            index=t2_idx,
+            key="t2_player",
+            on_change=on_tab2_player_change
+        )
 
     p_info = profiles_df[profiles_df['Nome'] == selected_player].iloc[0]
     p_matches = matches_df[(matches_df['Cod.'] == p_info['Cod.']) & (matches_df['Voto_Puro'].notna())]
