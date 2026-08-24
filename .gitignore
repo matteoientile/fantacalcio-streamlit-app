@@ -1,0 +1,17 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+.venv/
+env/
+
+# Data files (keep processed parquets if under 100MB, ignore raw dumps)
+data/raw/
+*.xlsx
+*.xls
+~$*.xlsx
+
+# OS / IDE
+.DS_Store
+.vscode/
+.idea/
