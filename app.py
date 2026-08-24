@@ -254,6 +254,15 @@ def log_purchase(player_name, buyer, price):
     st.session_state.draft_log.append(entry)
     save_draft_log(st.session_state.draft_log)
 
+# ----------------- SYNC CALLBACKS -----------------
+def sync_from_t1():
+    st.session_state.selected_player = st.session_state.t1_player
+    st.session_state.t2_player = st.session_state.t1_player
+
+def sync_from_t2():
+    st.session_state.selected_player = st.session_state.t2_player
+    st.session_state.t1_player = st.session_state.t2_player
+
 # ----------------- MAIN TABS -----------------
 tab1, tab2, tab3, tab4 = st.tabs([
     "📋 Master Listone & Live Logger", 
@@ -266,21 +275,22 @@ tab1, tab2, tab3, tab4 = st.tabs([
 with tab1:
     st.markdown("### ⚡ Live Call & Quick Logger")
     
-    def on_tab1_player_change():
-        st.session_state.selected_player = st.session_state.t1_player
-
     available_players = available_profiles_df.sort_values('Nome')
     t1_options = available_players['Nome'].tolist()
-    t1_idx = t1_options.index(st.session_state.selected_player) if st.session_state.selected_player in t1_options else 0
+    
+    # Ensure keys exist in session_state
+    if "t1_player" not in st.session_state or st.session_state.t1_player not in t1_options:
+        if len(t1_options) > 0:
+            st.session_state.t1_player = t1_options[0]
+            st.session_state.selected_player = t1_options[0]
 
     c_p, c_buyer, c_price, c_btn = st.columns([3, 2, 2, 2])
     with c_p:
         log_player = st.selectbox(
             "Player Called:",
             options=t1_options,
-            index=t1_idx,
             key="t1_player",
-            on_change=on_tab1_player_change
+            on_change=sync_from_t1
         )
     with c_buyer:
         log_buyer = st.selectbox("Bought By:", options=MANAGERS, key="t1_buyer")
@@ -418,20 +428,18 @@ with tab1:
 
 # ----------------- TAB 2: PLAYER HUD -----------------
 with tab2:
-    def on_tab2_player_change():
-        st.session_state.selected_player = st.session_state.t2_player
-
     all_player_names = profiles_df['Nome'].sort_values().unique().tolist()
-    t2_idx = all_player_names.index(st.session_state.selected_player) if st.session_state.selected_player in all_player_names else 0
+    
+    if "t2_player" not in st.session_state or st.session_state.t2_player not in all_player_names:
+        st.session_state.t2_player = st.session_state.selected_player
 
     col_search, _ = st.columns([2, 1])
     with col_search:
         selected_player = st.selectbox(
             "Search Target Player:",
             options=all_player_names,
-            index=t2_idx,
             key="t2_player",
-            on_change=on_tab2_player_change
+            on_change=sync_from_t2
         )
 
     p_info = profiles_df[profiles_df['Nome'] == selected_player].iloc[0]
