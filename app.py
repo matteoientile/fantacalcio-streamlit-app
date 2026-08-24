@@ -252,18 +252,19 @@ def log_purchase(player_name, buyer, price):
     st.session_state.draft_log.append(entry)
     save_draft_log(st.session_state.draft_log)
 
+
 # ----------------- MAIN TABS -----------------
-tab1, tab2, tab3, tab4, tab5 = st.tabs([
-    "📝 Draft Logger", 
+tab1, tab2, tab3, tab4 = st.tabs([
+    "📋 Master Listone & Live Logger", 
     "🎯 Live Player HUD", 
     "🏆 League & Opponent Rosters", 
-    "🛡️ Modificatore Sandbox", 
-    "📊 Master Roster & Ranks"
+    "🛡️ Modificatore Sandbox"
 ])
 
-# ----------------- TAB 1: DRAFT LOGGER -----------------
+# ----------------- TAB 1: MASTER LISTONE & LIVE LOGGER -----------------
 with tab1:
-    st.markdown("### ⚡ Live Call & Transaction Logger")
+    # 1. Direct Quick-Logger Input Bar
+    st.markdown("### ⚡ Live Call & Quick Logger")
     available_players = available_profiles_df.sort_values('Nome')
 
     c_p, c_buyer, c_price, c_btn = st.columns([3, 2, 2, 2])
@@ -289,7 +290,7 @@ with tab1:
 
     with log_btn_placeholder:
         if over_walkaway:
-            confirm_over = st.checkbox("Log above walk-away anyway", key="t1_confirm_over")
+            confirm_over = st.checkbox("Confirm over walk-away", key="t1_confirm_over")
             disabled = not confirm_over
         else:
             disabled = False
@@ -298,19 +299,112 @@ with tab1:
             st.success(f"Logged {log_player} to {log_buyer} for {log_price} cr")
             st.rerun()
 
-    st.markdown("---")
-    st.markdown("##### 🕒 Recent Auction History")
+    # 2. Collapsible / Compact Recent Transactions + Undo
     if not draft_df.empty:
-        col_table, col_undo = st.columns([5, 1])
-        with col_table:
-            st.dataframe(draft_df.iloc[::-1], use_container_width=True, hide_index=True)
-        with col_undo:
-            if st.button("↩️ Undo Last"):
-                st.session_state.draft_log.pop()
-                save_draft_log(st.session_state.draft_log)
-                st.rerun()
-    else:
-        st.info("No purchases logged yet. Draft is at starting pool.")
+        with st.expander(f"🕒 Recent Auction History ({len(draft_df)} logged)", expanded=False):
+            col_table, col_undo = st.columns([5, 1])
+            with col_table:
+                st.dataframe(draft_df.iloc[::-1], use_container_width=True, hide_index=True)
+            with col_undo:
+                if st.button("↩️ Undo Last"):
+                    st.session_state.draft_log.pop()
+                    save_draft_log(st.session_state.draft_log)
+                    st.rerun()
+
+    st.markdown("---")
+
+    # 3. Master Undrafted Listone with Sorting and Filters
+    st.markdown("##### 📋 Complete Undrafted Listone")
+    
+    c_filter1, c_filter2, c_filter3 = st.columns([1, 1, 2])
+    with c_filter1:
+        role_filter = st.selectbox("Role:", ['All', 'P', 'D', 'C', 'A'], key="t1_role")
+    with c_filter2:
+        min_presenze = st.number_input("Min Pres. 25/26:", min_value=0, max_value=38, value=0, step=1, key="t1_pres")
+    with c_filter3:
+        search_query = st.text_input("Quick Search (Name or Team):", "", key="t1_search")
+    
+    avail_pool = available_profiles_df.copy()
+    
+    if role_filter != 'All':
+        avail_pool = avail_pool[avail_pool['Ruolo'] == role_filter]
+        
+    if min_presenze > 0 and 'Presenze_Last_Season' in avail_pool.columns:
+        avail_pool = avail_pool[avail_pool['Presenze_Last_Season'] >= min_presenze]
+        
+    if search_query:
+        mask = (
+            avail_pool['Nome'].str.contains(search_query, case=False, na=False) |
+            avail_pool['Squadra'].str.contains(search_query, case=False, na=False)
+        )
+        avail_pool = avail_pool[mask]
+
+    # Calculate live dynamic prices
+    prices = avail_pool.apply(lambda r: get_dynamic_prices(r), axis=1)
+    avail_pool['Target_cr'] = [p[0] for p in prices]
+    avail_pool['Max_cr'] = [p[1] for p in prices]
+
+    # Keep numerical types clean for proper header sorting
+    avail_pool['FM_W'] = avail_pool['Fanta_Media_Weighted'].round(2)
+    avail_pool['FM_Raw'] = avail_pool.get('Fanta_Media_Raw', avail_pool['Fanta_Media_Weighted']).round(2)
+    avail_pool['MV_W'] = avail_pool['Media_Voto_Weighted'].round(2)
+    avail_pool['MV_Raw'] = avail_pool.get('Media_Voto_Raw', avail_pool['Media_Voto_Weighted']).round(2)
+    avail_pool['P_ge_6'] = avail_pool['P_Voto_ge_6']
+    avail_pool['P_ge_6_5'] = avail_pool['P_Voto_ge_6_5']
+    avail_pool['P_lt_6'] = avail_pool['P_Voto_lt_6'] if 'P_Voto_lt_6' in avail_pool.columns else (1.0 - avail_pool['P_Voto_ge_6'])
+
+    for int_col in ['Presenze_Last_Season', 'Presenze_Tot', 'Tot_Gol', 'Tot_Ass', 'Tot_Gs', 'Tot_Amm', 'Tot_Esp', 'Target_cr', 'Max_cr']:
+        if int_col in avail_pool.columns:
+            avail_pool[int_col] = avail_pool[int_col].fillna(0).astype(int)
+
+    all_possible_cols = [
+        'Nome', 'Squadra', 'Ruolo', 'Target_cr', 'Max_cr', 'Archetype',
+        'Presenze_Last_Season', 'Presenze_Tot',
+        'FM_W', 'FM_Raw', 'MV_W', 'MV_Raw',
+        'P_ge_6', 'P_ge_6_5', 'P_lt_6',
+        'Tot_Gol', 'Tot_Ass', 'Tot_Gs', 'Tot_Amm', 'Tot_Esp',
+        'Bonus_per_Game', 'Malus_per_Game', 'Clean_Sheet_Rate'
+    ]
+    
+    default_selected = [
+        'Nome', 'Squadra', 'Ruolo', 'Target_cr', 'Max_cr',
+        'Presenze_Last_Season', 'Presenze_Tot',
+        'FM_W', 'FM_Raw', 'MV_W', 'MV_Raw',
+        'P_ge_6', 'P_ge_6_5', 'P_lt_6', 'Tot_Gol', 'Tot_Ass'
+    ]
+
+    selected_columns = st.multiselect(
+        "Select Visible Columns:",
+        options=[c for c in all_possible_cols if c in avail_pool.columns],
+        default=[c for c in default_selected if c in avail_pool.columns],
+        key="t1_cols_picker"
+    )
+
+    column_configuration = {
+        "Target_cr": st.column_config.NumberColumn("Target (cr)", format="%d cr"),
+        "Max_cr": st.column_config.NumberColumn("Max (cr)", format="%d cr"),
+        "Presenze_Last_Season": st.column_config.NumberColumn("Pres 25/26", format="%d"),
+        "Presenze_Tot": st.column_config.NumberColumn("Pres Tot", format="%d"),
+        "FM_W": st.column_config.NumberColumn("FM (W)", format="%.2f"),
+        "FM_Raw": st.column_config.NumberColumn("FM (Raw)", format="%.2f"),
+        "MV_W": st.column_config.NumberColumn("MV (W)", format="%.2f"),
+        "MV_Raw": st.column_config.NumberColumn("MV (Raw)", format="%.2f"),
+        "P_ge_6": st.column_config.NumberColumn("P(Voto ≥ 6)", format="%.1f%%"),
+        "P_ge_6_5": st.column_config.NumberColumn("P(Voto ≥ 6.5)", format="%.1f%%"),
+        "P_lt_6": st.column_config.NumberColumn("P(Voto < 6)", format="%.1f%%"),
+        "Tot_Gol": st.column_config.NumberColumn("Gol", format="%d"),
+        "Tot_Ass": st.column_config.NumberColumn("Ass", format="%d"),
+        "Bonus_per_Game": st.column_config.NumberColumn("Bonus/G", format="%.2f"),
+        "Malus_per_Game": st.column_config.NumberColumn("Malus/G", format="%.2f"),
+    }
+
+    st.dataframe(
+        avail_pool.sort_values(by='Target_cr', ascending=False)[selected_columns],
+        use_container_width=True,
+        hide_index=True,
+        height=550,
+        column_config=column_configuration
+    )
 
 # ----------------- TAB 2: PLAYER HUD -----------------
 with tab2:
@@ -480,106 +574,3 @@ with tab4:
         st.plotly_chart(fig_prob, use_container_width=True)
     else:
         st.warning("Insufficient appearance records for one or more chosen players.")
-
-# ----------------- TAB 5: MASTER ROSTER & RANKS -----------------
-with tab5:
-    st.markdown("##### 📋 Complete Undrafted Listone")
-    
-    c_filter1, c_filter2, c_filter3 = st.columns([1, 1, 2])
-    with c_filter1:
-        role_filter = st.selectbox("Role:", ['All', 'P', 'D', 'C', 'A'], key="t5_role")
-    with c_filter2:
-        min_presenze = st.number_input("Min Pres. 25/26:", min_value=0, max_value=38, value=0, step=1, key="t5_pres")
-    with c_filter3:
-        search_query = st.text_input("Quick Search (Name or Team):", "", key="t5_search")
-    
-    avail_pool = available_profiles_df.copy()
-    
-    if role_filter != 'All':
-        avail_pool = avail_pool[avail_pool['Ruolo'] == role_filter]
-        
-    if min_presenze > 0 and 'Presenze_Last_Season' in avail_pool.columns:
-        avail_pool = avail_pool[avail_pool['Presenze_Last_Season'] >= min_presenze]
-        
-    if search_query:
-        mask = (
-            avail_pool['Nome'].str.contains(search_query, case=False, na=False) |
-            avail_pool['Squadra'].str.contains(search_query, case=False, na=False)
-        )
-        avail_pool = avail_pool[mask]
-
-    # Calculate live dynamic prices
-    prices = avail_pool.apply(lambda r: get_dynamic_prices(r), axis=1)
-    avail_pool['Target_cr'] = [p[0] for p in prices]
-    avail_pool['Max_cr'] = [p[1] for p in prices]
-
-    # Format numeric columns for clean display
-    # Keep columns purely numeric (do NOT convert to string / append '%')
-    avail_pool['FM_W'] = avail_pool['Fanta_Media_Weighted'].round(2)
-    avail_pool['FM_Raw'] = avail_pool.get('Fanta_Media_Raw', avail_pool['Fanta_Media_Weighted']).round(2)
-    avail_pool['MV_W'] = avail_pool['Media_Voto_Weighted'].round(2)
-    avail_pool['MV_Raw'] = avail_pool.get('Media_Voto_Raw', avail_pool['Media_Voto_Weighted']).round(2)
-    
-    # Store percentages as decimal shares (0.0 to 1.0) or (0.0 to 100.0)
-    avail_pool['P_ge_6'] = avail_pool['P_Voto_ge_6']
-    avail_pool['P_ge_6_5'] = avail_pool['P_Voto_ge_6_5']
-    if 'P_Voto_lt_6' in avail_pool.columns:
-        avail_pool['P_lt_6'] = avail_pool['P_Voto_lt_6']
-    else:
-        avail_pool['P_lt_6'] = 1.0 - avail_pool['P_Voto_ge_6']
-
-    # Integer types for appearance/count columns
-    for int_col in ['Presenze_Last_Season', 'Presenze_Tot', 'Tot_Gol', 'Tot_Ass', 'Tot_Gs', 'Tot_Amm', 'Tot_Esp', 'Target_cr', 'Max_cr']:
-        if int_col in avail_pool.columns:
-            avail_pool[int_col] = avail_pool[int_col].fillna(0).astype(int)
-
-    all_possible_cols = [
-        'Nome', 'Squadra', 'Ruolo', 'Target_cr', 'Max_cr', 'Archetype',
-        'Presenze_Last_Season', 'Presenze_Tot',
-        'FM_W', 'FM_Raw', 'MV_W', 'MV_Raw',
-        'P_ge_6', 'P_ge_6_5', 'P_lt_6',
-        'Tot_Gol', 'Tot_Ass', 'Tot_Gs', 'Tot_Amm', 'Tot_Esp',
-        'Bonus_per_Game', 'Malus_per_Game', 'Clean_Sheet_Rate'
-    ]
-    
-    default_selected = [
-        'Nome', 'Squadra', 'Ruolo', 'Target_cr', 'Max_cr',
-        'Presenze_Last_Season',
-        'FM_W', 'FM_Raw', 'MV_W', 'MV_Raw',
-        'P_ge_6', 'P_ge_6_5', 'P_lt_6', 
-        'Bonus_per_Game', 'Malus_per_Game', 'Clean_Sheet_Rate'
-    ]
-
-    selected_columns = st.multiselect(
-        "Select Visible Columns:",
-        options=[c for c in all_possible_cols if c in avail_pool.columns],
-        default=[c for c in default_selected if c in avail_pool.columns],
-        key="t5_cols_picker"
-    )
-
-    # Column configuration for clean display without corrupting sorting
-    column_configuration = {
-        "Target_cr": st.column_config.NumberColumn("Target (cr)", format="%d cr"),
-        "Max_cr": st.column_config.NumberColumn("Max (cr)", format="%d cr"),
-        "Presenze_Last_Season": st.column_config.NumberColumn("Pres 25/26", format="%d"),
-        "Presenze_Tot": st.column_config.NumberColumn("Pres Tot", format="%d"),
-        "FM_W": st.column_config.NumberColumn("FM (W)", format="%.2f"),
-        "FM_Raw": st.column_config.NumberColumn("FM (Raw)", format="%.2f"),
-        "MV_W": st.column_config.NumberColumn("MV (W)", format="%.2f"),
-        "MV_Raw": st.column_config.NumberColumn("MV (Raw)", format="%.2f"),
-        "P_ge_6": st.column_config.NumberColumn("P(Voto ≥ 6)", format="%.1f%%"),
-        "P_ge_6_5": st.column_config.NumberColumn("P(Voto ≥ 6.5)", format="%.1f%%"),
-        "P_lt_6": st.column_config.NumberColumn("P(Voto < 6)", format="%.1f%%"),
-        "Tot_Gol": st.column_config.NumberColumn("Gol", format="%d"),
-        "Tot_Ass": st.column_config.NumberColumn("Ass", format="%d"),
-        "Bonus_per_Game": st.column_config.NumberColumn("Bonus/G", format="%.2f"),
-        "Malus_per_Game": st.column_config.NumberColumn("Malus/G", format="%.2f"),
-    }
-
-    st.dataframe(
-        avail_pool.sort_values(by='Target_cr', ascending=False)[selected_columns],
-        use_container_width=True,
-        hide_index=True,
-        height=600,
-        column_config=column_configuration
-    )
