@@ -370,7 +370,8 @@ with tab1:
         'Nome', 'Squadra', 'Ruolo', 'Target_cr', 'Max_cr',
         'Presenze_Last_Season', 'Presenze_Tot',
         'FM_W', 'FM_Raw', 'MV_W', 'MV_Raw',
-        'P_ge_6', 'P_ge_6_5', 'P_lt_6', 'Tot_Gol', 'Tot_Ass'
+        'P_ge_6', 'P_ge_6_5', 'P_lt_6', 
+        'Bonus_per_Game', 'Malus_per_Game', 'Clean_Sheet_Rate'
     ]
 
     selected_columns = st.multiselect(
