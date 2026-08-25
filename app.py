@@ -657,7 +657,7 @@ with tab1:
     ]
     
     default_selected = [
-        'Nome', 'Squadra', 'Ruolo', 'Tag' , 'Note' 'Target_cr', 'Max_cr',
+        'Nome', 'Squadra', 'Ruolo', 'Tag', 'Note', 'Target_cr', 'Max_cr',
         'Presenze_Last_Season', 'Presenze_Tot',
         'FM_W', 'FM_Raw', 'MV_W', 'MV_Raw',
         'P_ge_6', 'P_ge_6_5', 'P_lt_6', 
