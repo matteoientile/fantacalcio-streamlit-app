@@ -432,10 +432,10 @@ st.sidebar.markdown(f"### {t('alloc_title')}")
 alloc_mode = st.sidebar.radio(t("alloc_mode"), [t("alloc_pct"), t("alloc_abs")], horizontal=True)
 
 if alloc_mode == t("alloc_pct"):
-    b_gk = st.sidebar.slider(t("role_p"), 3, 20, 8, step=1)
-    b_def = st.sidebar.slider(t("role_d"), 5, 35, 18, step=1)
-    b_mid = st.sidebar.slider(t("role_c"), 10, 45, 26, step=1)
-    b_fwd = st.sidebar.slider(t("role_a"), 25, 75, 48, step=1)
+    b_gk = st.sidebar.slider(t("role_p"), 3, 20, 9, step=1)
+    b_def = st.sidebar.slider(t("role_d"), 5, 35, 20, step=1)
+    b_mid = st.sidebar.slider(t("role_c"), 10, 45, 25, step=1)
+    b_fwd = st.sidebar.slider(t("role_a"), 25, 75, 46, step=1)
 
     total_alloc = b_gk + b_def + b_mid + b_fwd
     if total_alloc != 100:
