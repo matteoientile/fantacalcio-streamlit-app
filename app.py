@@ -263,7 +263,7 @@ TAG_OPTIONS = [
     "🔴 Rigorista",
     "🟢 Titolare",
     "🟡 Punizioni / Corner",
-    "🟣 Ruolo Buggato (D->C / C->A)",
+    "🟣 Obiettivo primario",
     "🔵 Scommessa / Slot Scommessa"
 ]
 
@@ -351,7 +351,8 @@ lang_choice = st.sidebar.radio("Language / Lingua", ["🇮🇹 IT", "🇬🇧 EN
 current_lang = "IT" if "IT" in lang_choice else "EN"
 
 def t(key, **kwargs):
-    text = TRANSLATIONS[current_lang].get(key, key)
+    lang_dict = TRANSLATIONS.get(current_lang, TRANSLATIONS["IT"])
+    text = lang_dict.get(key, TRANSLATIONS["EN"].get(key, key))
     return text.format(**kwargs) if kwargs else text
 
 # ----------------- LIVE DRAFT CALCULATIONS -----------------
@@ -639,9 +640,12 @@ with tab1:
     avail_pool['FM_Raw'] = avail_pool.get('Fanta_Media_Raw', avail_pool['Fanta_Media_Weighted']).round(2)
     avail_pool['MV_W'] = avail_pool['Media_Voto_Weighted'].round(2)
     avail_pool['MV_Raw'] = avail_pool.get('Media_Voto_Raw', avail_pool['Media_Voto_Weighted']).round(2)
-    avail_pool['P_ge_6'] = avail_pool['P_Voto_ge_6']
-    avail_pool['P_ge_6_5'] = avail_pool['P_Voto_ge_6_5']
-    avail_pool['P_lt_6'] = avail_pool['P_Voto_lt_6'] if 'P_Voto_lt_6' in avail_pool.columns else (1.0 - avail_pool['P_Voto_ge_6'])
+    avail_pool['P_ge_6'] = (avail_pool['P_Voto_ge_6'] * 100).round(1)
+    avail_pool['P_ge_6_5'] = (avail_pool['P_Voto_ge_6_5'] * 100).round(1)
+    if 'P_Voto_lt_6' in avail_pool.columns:
+        avail_pool['P_lt_6'] = (avail_pool['P_Voto_lt_6'] * 100).round(1)
+    else:
+        avail_pool['P_lt_6'] = (100.0 - avail_pool['P_ge_6']).round(1)
 
     for int_col in ['Presenze_Last_Season', 'Presenze_Tot', 'Tot_Gol', 'Tot_Ass', 'Tot_Gs', 'Tot_Amm', 'Tot_Esp', 'Target_cr', 'Max_cr']:
         if int_col in avail_pool.columns:
@@ -938,7 +942,7 @@ with tab5:
                     "Max (cr)": int(wa),
                     "FM (W)": round(row['Fanta_Media_Weighted'], 2),
                     "MV (W)": round(row['Media_Voto_Weighted'], 2),
-                    "P(Voto ≥ 6)": row['P_Voto_ge_6'],
+                    "P(Voto ≥ 6)": round(row['P_Voto_ge_6'] * 100, 1),
                     "Status": buyer_str,
                     "Note": p_meta.get("note", "")
                 })
