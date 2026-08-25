@@ -36,8 +36,8 @@
     "note": "ballottaggio Bernasconi"
   },
   "Samardzic": {
-    "tag": "\ud83d\udd34 Rigorista",
-    "note": "Rig vice Scamacca"
+    "tag": "\ud83d\udfe3 Obiettivo primario",
+    "note": "Rig vice Scamacca, Punizioni"
   },
   "Pasalic": {
     "tag": "\ud83d\udfe2 Titolare",
@@ -56,8 +56,8 @@
     "note": ""
   },
   "Krstovic": {
-    "tag": "\ud83d\udfe2 Titolare",
-    "note": "ballottaggio Scamacca"
+    "tag": "\ud83d\udfe3 Obiettivo primario",
+    "note": "RIG"
   },
   "Raspadori": {
     "tag": "\ud83d\udfe2 Titolare",
@@ -160,8 +160,8 @@
     "note": ""
   },
   "Romano": {
-    "tag": "\ud83d\udfe2 Titolare",
-    "note": ""
+    "tag": "\ud83d\udfe3 Obiettivo primario",
+    "note": "titolare"
   },
   "Maldini": {
     "tag": "\ud83d\udfe2 Titolare",
@@ -176,8 +176,8 @@
     "note": "ballottaggio Kevin Carlos"
   },
   "Fazzini": {
-    "tag": "\ud83d\udd34 Rigorista",
-    "note": "Rig + gioca esterno 4-3-3"
+    "tag": "\ud83d\udfe3 Obiettivo primario",
+    "note": "RIG + gioca esterno 4-3-3"
   },
   "Esposito Se.": {
     "tag": "\ud83d\udfe2 Titolare",
@@ -228,7 +228,7 @@
     "note": ""
   },
   "Baturina": {
-    "tag": "\ud83d\udfe2 Titolare",
+    "tag": "\ud83d\udfe3 Obiettivo primario",
     "note": ""
   },
   "De Gea": {
@@ -312,7 +312,7 @@
     "note": ""
   },
   "Cal\u00f2": {
-    "tag": "\ud83d\udd34 Rigorista",
+    "tag": "\ud83d\udfe3 Obiettivo primario",
     "note": "rig in ballottaggio, punizioni e corner SI"
   },
   "Masini": {
@@ -472,7 +472,7 @@
     "note": ""
   },
   "McKennie": {
-    "tag": "\ud83d\udfe2 Titolare",
+    "tag": "\ud83d\udfe3 Obiettivo primario",
     "note": ""
   },
   "Kolo Muani": {
@@ -568,8 +568,8 @@
     "note": "esterno 4-3-3"
   },
   "Geubbels": {
-    "tag": "\ud83d\udd34 Rigorista",
-    "note": "se in campo, Rig"
+    "tag": "\ud83d\udfe3 Obiettivo primario",
+    "note": "RIG"
   },
   "N'Dri": {
     "tag": "\ud83d\udfe2 Titolare",
@@ -696,7 +696,7 @@
     "note": ""
   },
   "Santos A.": {
-    "tag": "\ud83d\udfe2 Titolare",
+    "tag": "\ud83d\udfe3 Obiettivo primario",
     "note": ""
   },
   "Corvi": {
@@ -724,8 +724,8 @@
     "note": ""
   },
   "Bernab\u00e8": {
-    "tag": "\ud83d\udfe1 Punizioni / Corner",
-    "note": "titolare"
+    "tag": "\ud83d\udfe3 Obiettivo primario",
+    "note": "titolare, punizioni e corner SI"
   },
   "Keita M.": {
     "tag": "\ud83d\udfe2 Titolare",
@@ -740,8 +740,8 @@
     "note": ""
   },
   "Romero D.": {
-    "tag": "\ud83d\udd35 Scommessa / Slot Scommessa",
-    "note": "19 presene 11 gol in argentina"
+    "tag": "\ud83d\udfe3 Obiettivo primario",
+    "note": "19 presenze 11 gol in argentina"
   },
   "Tour\u00e8 E.": {
     "tag": "\ud83d\udd34 Rigorista",
@@ -784,7 +784,7 @@
     "note": ""
   },
   "Dybala": {
-    "tag": "\ud83d\udfe2 Titolare",
+    "tag": "\ud83d\udfe3 Obiettivo primario",
     "note": ""
   },
   "Mora": {
@@ -828,7 +828,7 @@
     "note": ""
   },
   "Berardi": {
-    "tag": "\ud83d\udd34 Rigorista",
+    "tag": "\ud83d\udfe3 Obiettivo primario",
     "note": ""
   },
   "Pinamonti": {
@@ -868,8 +868,8 @@
     "note": ""
   },
   "Vlasic": {
-    "tag": "\ud83d\udd34 Rigorista",
-    "note": "esterno d'attacco 3-4-2-1"
+    "tag": "\ud83d\udfe3 Obiettivo primario",
+    "note": "RIG, esterno d'attacco 3-4-2-1"
   },
   "Simeone": {
     "tag": "\ud83d\udfe2 Titolare",
@@ -904,8 +904,8 @@
     "note": "trequartista 3-4-2-1"
   },
   "Davis K.": {
-    "tag": "\ud83d\udd34 Rigorista",
-    "note": ""
+    "tag": "\ud83d\udfe3 Obiettivo primario",
+    "note": "RIG"
   },
   "Stankovic F.": {
     "tag": "\ud83d\udfe2 Titolare",
@@ -924,8 +924,8 @@
     "note": "esterno 3-5-2"
   },
   "Busio": {
-    "tag": "\ud83d\udd34 Rigorista",
-    "note": ""
+    "tag": "\ud83d\udfe3 Obiettivo primario",
+    "note": "RIG"
   },
   "Basic": {
     "tag": "\ud83d\udfe2 Titolare",
@@ -936,7 +936,7 @@
     "note": ""
   },
   "Adams A.": {
-    "tag": "\ud83d\udd35 Scommessa / Slot Scommessa",
+    "tag": "\ud83d\udfe3 Obiettivo primario",
     "note": "TIT, pi\u00f9 pagato della storia, 15 gol"
   },
   "Ellertsson": {
@@ -950,5 +950,9 @@
   "Liberali": {
     "tag": "\ud83d\udd35 Scommessa / Slot Scommessa",
     "note": "Minuti potenziali, Como in Champions"
+  },
+  "Douvikas": {
+    "tag": "\ud83d\udfe3 Obiettivo primario",
+    "note": ""
   }
 }
