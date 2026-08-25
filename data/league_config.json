@@ -1,14 +1,18 @@
-[
-  "Io",
-  "Meco",
-  "Ciccio",
-  "Tot\u00f2V",
-  "Lorenzo",
-  "Vici",
-  "Samuele",
-  "GatTia",
-  "MicoG",
-  "PeppeP",
-  "Max",
-  "Strati"
-]
+{
+  "num_teams": 12,
+  "starting_budget": 500,
+  "managers": [
+    "Io",
+    "Meco",
+    "Ciccio",
+    "Tot\u00f2",
+    "Vici",
+    "Lorenzo",
+    "Samuele",
+    "Mico G",
+    "StratiT",
+    "Gabriele",
+    "Max",
+    "PeppeP"
+  ]
+}

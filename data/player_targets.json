@@ -1,0 +1,950 @@
+{
+  "Carnesecchi": {
+    "tag": "\ud83d\udfe2 Titolare",
+    "note": ""
+  },
+  "Scalvini": {
+    "tag": "\ud83d\udfe2 Titolare",
+    "note": ""
+  },
+  "Kristensen T.": {
+    "tag": "\ud83d\udfe2 Titolare",
+    "note": ""
+  },
+  "Ederson D.S.": {
+    "tag": "\ud83d\udfe2 Titolare",
+    "note": ""
+  },
+  "De Ketelaere": {
+    "tag": "\ud83d\udfe2 Titolare",
+    "note": ""
+  },
+  "Zappacosta": {
+    "tag": "\ud83d\udfe2 Titolare",
+    "note": "ballottaggio Bellanova"
+  },
+  "Bellanova": {
+    "tag": "\ud83d\udfe2 Titolare",
+    "note": "ballottaggio Zappacosta"
+  },
+  "Bernasconi": {
+    "tag": "\ud83d\udfe2 Titolare",
+    "note": "ballottaggio Ahanor"
+  },
+  "Ahanor": {
+    "tag": "\ud83d\udfe2 Titolare",
+    "note": "ballottaggio Bernasconi"
+  },
+  "Samardzic": {
+    "tag": "\ud83d\udd34 Rigorista",
+    "note": "Rig vice Scamacca"
+  },
+  "Pasalic": {
+    "tag": "\ud83d\udfe2 Titolare",
+    "note": "ballottaggio Samardzic"
+  },
+  "Gaetano": {
+    "tag": "\ud83d\udfe2 Titolare",
+    "note": "ballottaggio De Roon"
+  },
+  "De Roon": {
+    "tag": "\ud83d\udfe2 Titolare",
+    "note": "ballottaggio Gaetano"
+  },
+  "Scamacca": {
+    "tag": "\ud83d\udd34 Rigorista",
+    "note": ""
+  },
+  "Krstovic": {
+    "tag": "\ud83d\udfe2 Titolare",
+    "note": "ballottaggio Scamacca"
+  },
+  "Raspadori": {
+    "tag": "\ud83d\udfe2 Titolare",
+    "note": "ballottaggio Elmas (occhio Rowe)"
+  },
+  "Skorupski": {
+    "tag": "\ud83d\udfe2 Titolare",
+    "note": ""
+  },
+  "Zortea": {
+    "tag": "\ud83d\udfe2 Titolare",
+    "note": "ballottaggio Holm"
+  },
+  "Holm": {
+    "tag": "\ud83d\udfe2 Titolare",
+    "note": "ballottaggio Zortea"
+  },
+  "Vitik": {
+    "tag": "\ud83d\udfe2 Titolare",
+    "note": ""
+  },
+  "Heggem": {
+    "tag": "\ud83d\udfe2 Titolare",
+    "note": ""
+  },
+  "Miranda J.": {
+    "tag": "\ud83d\udfe2 Titolare",
+    "note": ""
+  },
+  "Bernardeschi": {
+    "tag": "\ud83d\udfe2 Titolare",
+    "note": "ballottaggio Odgaard"
+  },
+  "Odgaard": {
+    "tag": "\ud83d\udfe2 Titolare",
+    "note": "ballottaggio Bernardeschi"
+  },
+  "Pobega": {
+    "tag": "\ud83d\udfe2 Titolare",
+    "note": "ballottaggio Moro"
+  },
+  "Moro N.": {
+    "tag": "\ud83d\udfe2 Titolare",
+    "note": "ballottaggio Pobega"
+  },
+  "Ferguson": {
+    "tag": "\ud83d\udfe2 Titolare",
+    "note": ""
+  },
+  "Orsolini": {
+    "tag": "\ud83d\udd34 Rigorista",
+    "note": ""
+  },
+  "Dovbyk": {
+    "tag": "\ud83d\udfe2 Titolare",
+    "note": "ballottaggio Piccoli"
+  },
+  "Piccoli": {
+    "tag": "\ud83d\udfe2 Titolare",
+    "note": "ballottaggio Dovbyk"
+  },
+  "Rowe": {
+    "tag": "\ud83d\udfe2 Titolare",
+    "note": "occhio ATALANTA"
+  },
+  "Caprile": {
+    "tag": "\ud83d\udfe2 Titolare",
+    "note": ""
+  },
+  "Z\u00e8 Pedro": {
+    "tag": "\ud83d\udfe2 Titolare",
+    "note": "ballottaggio Zappa"
+  },
+  "Zappa": {
+    "tag": "\ud83d\udfe2 Titolare",
+    "note": "ballottaggio Z\u00e8 Pedro"
+  },
+  "Mina": {
+    "tag": "\ud83d\udfe2 Titolare",
+    "note": "ballottaggio Deiola"
+  },
+  "Deiola": {
+    "tag": "\ud83d\udfe2 Titolare",
+    "note": "ballottaggio Mina"
+  },
+  "Rodriguez Ju.": {
+    "tag": "\ud83d\udfe2 Titolare",
+    "note": ""
+  },
+  "Obert": {
+    "tag": "\ud83d\udfe2 Titolare",
+    "note": ""
+  },
+  "Adopo": {
+    "tag": "\ud83d\udfe2 Titolare",
+    "note": ""
+  },
+  "Winks": {
+    "tag": "\ud83d\udfe2 Titolare",
+    "note": ""
+  },
+  "Romano": {
+    "tag": "\ud83d\udfe2 Titolare",
+    "note": ""
+  },
+  "Maldini": {
+    "tag": "\ud83d\udfe2 Titolare",
+    "note": ""
+  },
+  "Kevin Carlos": {
+    "tag": "\ud83d\udfe2 Titolare",
+    "note": "ballottaggio Mendy"
+  },
+  "Mendy P.": {
+    "tag": "\ud83d\udfe2 Titolare",
+    "note": "ballottaggio Kevin Carlos"
+  },
+  "Fazzini": {
+    "tag": "\ud83d\udd34 Rigorista",
+    "note": "Rig + gioca esterno 4-3-3"
+  },
+  "Esposito Se.": {
+    "tag": "\ud83d\udfe2 Titolare",
+    "note": "OCCHIO SASSUOLO"
+  },
+  "Butez": {
+    "tag": "\ud83d\udfe2 Titolare",
+    "note": ""
+  },
+  "Couto": {
+    "tag": "\ud83d\udfe2 Titolare",
+    "note": "ballottaggio Smolcic"
+  },
+  "Ramon": {
+    "tag": "\ud83d\udfe2 Titolare",
+    "note": "ballottaggio Kempf"
+  },
+  "Chalobah T.": {
+    "tag": "\ud83d\udfe2 Titolare",
+    "note": ""
+  },
+  "Valle": {
+    "tag": "\ud83d\udfe2 Titolare",
+    "note": "ballottaggio Kaiki"
+  },
+  "Kaiki": {
+    "tag": "\ud83d\udfe2 Titolare",
+    "note": "ballottaggio Valle"
+  },
+  "Perrone": {
+    "tag": "\ud83d\udfe2 Titolare",
+    "note": "ballottaggio Milla"
+  },
+  "Milla": {
+    "tag": "\ud83d\udfe2 Titolare",
+    "note": "ballottaggio Perrone"
+  },
+  "Da Cunha": {
+    "tag": "\ud83d\udd34 Rigorista",
+    "note": "se arriva Kean, rischia"
+  },
+  "Diao": {
+    "tag": "\ud83d\udfe2 Titolare",
+    "note": "ballottaggio Rodriguez Je."
+  },
+  "Paz N.": {
+    "tag": "\ud83d\udfe2 Titolare",
+    "note": ""
+  },
+  "Baturina": {
+    "tag": "\ud83d\udfe2 Titolare",
+    "note": ""
+  },
+  "De Gea": {
+    "tag": "\ud83d\udfe2 Titolare",
+    "note": ""
+  },
+  "Jimenez A.": {
+    "tag": "\ud83d\udfe2 Titolare",
+    "note": "ballottaggio Joao Mario"
+  },
+  "Dragusin": {
+    "tag": "\ud83d\udfe2 Titolare",
+    "note": ""
+  },
+  "Viery": {
+    "tag": "\ud83d\udfe2 Titolare",
+    "note": ""
+  },
+  "Valdepenas": {
+    "tag": "\ud83d\udfe2 Titolare",
+    "note": ""
+  },
+  "Oulai": {
+    "tag": "\ud83d\udfe2 Titolare",
+    "note": ""
+  },
+  "Fagioli": {
+    "tag": "\ud83d\udfe2 Titolare",
+    "note": ""
+  },
+  "Ndour": {
+    "tag": "\ud83d\udfe2 Titolare",
+    "note": "ballottaggio Gudmundsonn"
+  },
+  "Gudmundsson A.": {
+    "tag": "\ud83d\udd34 Rigorista",
+    "note": "Rig se va via Kean"
+  },
+  "Atta": {
+    "tag": "\ud83d\udfe2 Titolare",
+    "note": ""
+  },
+  "Mastantuono": {
+    "tag": "\ud83d\udfe2 Titolare",
+    "note": "gioca esterno 4-2-3-1"
+  },
+  "Pellegrino M.": {
+    "tag": "\ud83d\udfe2 Titolare",
+    "note": "OCCHIO BETO/nuovo"
+  },
+  "Kean": {
+    "tag": "\ud83d\udfe2 Titolare",
+    "note": "VA A COMO"
+  },
+  "Oyono A.": {
+    "tag": "\ud83d\udfe2 Titolare",
+    "note": ""
+  },
+  "Akpoguma": {
+    "tag": "\ud83d\udfe2 Titolare",
+    "note": ""
+  },
+  "Monterisi": {
+    "tag": "\ud83d\udfe2 Titolare",
+    "note": "ballottaggio Calvani"
+  },
+  "Calvani": {
+    "tag": "\ud83d\udfe2 Titolare",
+    "note": "ballottaggio Monterisi"
+  },
+  "Terzic": {
+    "tag": "\ud83d\udfe2 Titolare",
+    "note": ""
+  },
+  "Schmid": {
+    "tag": "\ud83d\udd34 Rigorista",
+    "note": "rig ballottaggio Cal\u00f2"
+  },
+  "Grillitsch": {
+    "tag": "\ud83d\udfe2 Titolare",
+    "note": ""
+  },
+  "Cal\u00f2": {
+    "tag": "\ud83d\udd34 Rigorista",
+    "note": "rig ballottaggio Schmid"
+  },
+  "Masini": {
+    "tag": "\ud83d\udfe2 Titolare",
+    "note": "ballottaggio Cal\u00f2"
+  },
+  "Ghedjemis": {
+    "tag": "\ud83d\udfe2 Titolare",
+    "note": ""
+  },
+  "Raimondo": {
+    "tag": "\ud83d\udfe2 Titolare",
+    "note": ""
+  },
+  "Kvernadze": {
+    "tag": "\ud83d\udfe2 Titolare",
+    "note": "ballottaggio Zerbin"
+  },
+  "Zerbin": {
+    "tag": "\ud83d\udfe2 Titolare",
+    "note": "ballottaggio Kvernadze"
+  },
+  "Bijlow": {
+    "tag": "\ud83d\udfe2 Titolare",
+    "note": ""
+  },
+  "Marcandalli": {
+    "tag": "\ud83d\udfe2 Titolare",
+    "note": ""
+  },
+  "Ostigard": {
+    "tag": "\ud83d\udfe2 Titolare",
+    "note": ""
+  },
+  "Vasquez": {
+    "tag": "\ud83d\udfe2 Titolare",
+    "note": ""
+  },
+  "Norton-Cuffy": {
+    "tag": "\ud83d\udfe2 Titolare",
+    "note": "esterno 3-5-2"
+  },
+  "Sow": {
+    "tag": "\ud83d\udfe2 Titolare",
+    "note": ""
+  },
+  "Frendrup": {
+    "tag": "\ud83d\udfe2 Titolare",
+    "note": ""
+  },
+  "Mitaj": {
+    "tag": "\ud83d\udfe2 Titolare",
+    "note": "ballottaggio Ellertsson/esterno 3-4-2-1"
+  },
+  "Vitinha O.": {
+    "tag": "\ud83d\udfe2 Titolare",
+    "note": "ballottaggio Meichtry"
+  },
+  "Meichtry": {
+    "tag": "\ud83d\udfe2 Titolare",
+    "note": "ballottaggio Vitinha O."
+  },
+  "Colombo": {
+    "tag": "\ud83d\udd34 Rigorista",
+    "note": ""
+  },
+  "Martinez Jo.": {
+    "tag": "\ud83d\udfe2 Titolare",
+    "note": "ballottaggio Provedel"
+  },
+  "Provedel": {
+    "tag": "\ud83d\udfe2 Titolare",
+    "note": "ballottaggio Martinez Jo."
+  },
+  "Akanji": {
+    "tag": "\ud83d\udfe2 Titolare",
+    "note": ""
+  },
+  "Stones": {
+    "tag": "\ud83d\udfe2 Titolare",
+    "note": "ballottaggio Bisseck"
+  },
+  "Bisseck": {
+    "tag": "\ud83d\udfe2 Titolare",
+    "note": "ballottaggio Stones"
+  },
+  "Bastoni": {
+    "tag": "\ud83d\udfe2 Titolare",
+    "note": ""
+  },
+  "Spence": {
+    "tag": "\ud83d\udfe2 Titolare",
+    "note": "ballottaggio Diouf"
+  },
+  "Diouf": {
+    "tag": "\ud83d\udfe2 Titolare",
+    "note": "ballottaggio Spence"
+  },
+  "Barella": {
+    "tag": "\ud83d\udfe2 Titolare",
+    "note": ""
+  },
+  "Calhanoglu": {
+    "tag": "\ud83d\udd34 Rigorista",
+    "note": ""
+  },
+  "Jones C.": {
+    "tag": "\ud83d\udfe2 Titolare",
+    "note": ""
+  },
+  "Dimarco": {
+    "tag": "\ud83d\udfe2 Titolare",
+    "note": ""
+  },
+  "Martinez L.": {
+    "tag": "\ud83d\udfe2 Titolare",
+    "note": ""
+  },
+  "Thuram": {
+    "tag": "\ud83d\udfe2 Titolare",
+    "note": ""
+  },
+  "Vicario": {
+    "tag": "\ud83d\udfe2 Titolare",
+    "note": ""
+  },
+  "Kalulu": {
+    "tag": "\ud83d\udfe2 Titolare",
+    "note": ""
+  },
+  "Bremer": {
+    "tag": "\ud83d\udfe2 Titolare",
+    "note": ""
+  },
+  "Lucum\u00ec": {
+    "tag": "\ud83d\udfe2 Titolare",
+    "note": "ballottaggio Kelly"
+  },
+  "Kelly L.": {
+    "tag": "\ud83d\udfe2 Titolare",
+    "note": "ballottaggio Lucum\u00ec"
+  },
+  "Thuram K.": {
+    "tag": "\ud83d\udfe2 Titolare",
+    "note": "occhio Kessi\u00e8"
+  },
+  "Locatelli": {
+    "tag": "\ud83d\udfe2 Titolare",
+    "note": "occhio Douglas Luiz"
+  },
+  "Yildiz": {
+    "tag": "\ud83d\udfe2 Titolare",
+    "note": "rotto 2 mesi"
+  },
+  "Conceicao": {
+    "tag": "\ud83d\udfe2 Titolare",
+    "note": ""
+  },
+  "McKennie": {
+    "tag": "\ud83d\udfe2 Titolare",
+    "note": ""
+  },
+  "Kolo Muani": {
+    "tag": "\ud83d\udd34 Rigorista",
+    "note": ""
+  },
+  "Mandas": {
+    "tag": "\ud83d\udfe2 Titolare",
+    "note": "con Motta per sicurezza"
+  },
+  "Marusic": {
+    "tag": "\ud83d\udfe2 Titolare",
+    "note": ""
+  },
+  "Sutalo J.": {
+    "tag": "\ud83d\udfe2 Titolare",
+    "note": "ballottaggio Doekhi"
+  },
+  "Doekhi": {
+    "tag": "\ud83d\udfe2 Titolare",
+    "note": "ballottaggio Sutalo"
+  },
+  "Provstgaard": {
+    "tag": "\ud83d\udfe2 Titolare",
+    "note": ""
+  },
+  "Pedraza": {
+    "tag": "\ud83d\udfe2 Titolare",
+    "note": "ballottaggio Pellegrini Lu."
+  },
+  "Pellegrini Lu.": {
+    "tag": "\ud83d\udfe2 Titolare",
+    "note": "ballottaggio Pedraza"
+  },
+  "Taylor K.": {
+    "tag": "\ud83d\udd34 Rigorista",
+    "note": "Rig in ballott con Zacc"
+  },
+  "Rovella": {
+    "tag": "\ud83d\udfe2 Titolare",
+    "note": ""
+  },
+  "Frattesi": {
+    "tag": "\ud83d\udfe2 Titolare",
+    "note": ""
+  },
+  "Isaksen": {
+    "tag": "\ud83d\udfe2 Titolare",
+    "note": "ballottaggio Cancellieri"
+  },
+  "Zaccagni": {
+    "tag": "\ud83d\udfe2 Titolare",
+    "note": ""
+  },
+  "Falcone": {
+    "tag": "\ud83d\udfe2 Titolare",
+    "note": ""
+  },
+  "Veiga D.": {
+    "tag": "\ud83d\udfe2 Titolare",
+    "note": ""
+  },
+  "Gaspar K.": {
+    "tag": "\ud83d\udfe2 Titolare",
+    "note": ""
+  },
+  "Gallo": {
+    "tag": "\ud83d\udfe2 Titolare",
+    "note": ""
+  },
+  "Coulibaly L.": {
+    "tag": "\ud83d\udfe2 Titolare",
+    "note": ""
+  },
+  "Ngom": {
+    "tag": "\ud83d\udfe2 Titolare",
+    "note": "ballottaggio Berisha M"
+  },
+  "Berisha M.": {
+    "tag": "\ud83d\udfe2 Titolare",
+    "note": "ballottaggio Ngom"
+  },
+  "Gandelman": {
+    "tag": "\ud83d\udfe2 Titolare",
+    "note": "ballottaggio Maleh"
+  },
+  "Maleh": {
+    "tag": "\ud83d\udfe2 Titolare",
+    "note": "ballottaggio Gandelman"
+  },
+  "Pierotti": {
+    "tag": "\ud83d\udfe2 Titolare",
+    "note": "esterno 4-3-3"
+  },
+  "Geubbels": {
+    "tag": "\ud83d\udd34 Rigorista",
+    "note": "se in campo, Rig"
+  },
+  "N'Dri": {
+    "tag": "\ud83d\udfe2 Titolare",
+    "note": ""
+  },
+  "Maignan": {
+    "tag": "\ud83d\udfe2 Titolare",
+    "note": ""
+  },
+  "Gila": {
+    "tag": "\ud83d\udfe2 Titolare",
+    "note": ""
+  },
+  "Gabbia": {
+    "tag": "\ud83d\udfe2 Titolare",
+    "note": "occhio se comprano nuovo centrale"
+  },
+  "Pavlovic": {
+    "tag": "\ud83d\udfe2 Titolare",
+    "note": "occhio se comprano nuovo centrale"
+  },
+  "Chukwueze": {
+    "tag": "\ud83d\udfe2 Titolare",
+    "note": "ballottaggio Saelemakers"
+  },
+  "Rabiot": {
+    "tag": "\ud83d\udfe2 Titolare",
+    "note": ""
+  },
+  "Modric": {
+    "tag": "\ud83d\udfe2 Titolare",
+    "note": ""
+  },
+  "Moreira": {
+    "tag": "\ud83d\udfe2 Titolare",
+    "note": ""
+  },
+  "Pulisic": {
+    "tag": "\ud83d\udfe2 Titolare",
+    "note": ""
+  },
+  "Ramos G.": {
+    "tag": "\ud83d\udd34 Rigorista",
+    "note": ""
+  },
+  "Thiam": {
+    "tag": "\ud83d\udfe2 Titolare",
+    "note": ""
+  },
+  "Kouadio": {
+    "tag": "\ud83d\udfe2 Titolare",
+    "note": ""
+  },
+  "Delli Carri": {
+    "tag": "\ud83d\udfe2 Titolare",
+    "note": ""
+  },
+  "Carboni A.": {
+    "tag": "\ud83d\udfe2 Titolare",
+    "note": ""
+  },
+  "Birindelli": {
+    "tag": "\ud83d\udfe2 Titolare",
+    "note": "esterno 3-4-3"
+  },
+  "Akinsanmiro": {
+    "tag": "\ud83d\udfe2 Titolare",
+    "note": "ballottaggio Mout"
+  },
+  "Pessina": {
+    "tag": "\ud83d\udd34 Rigorista",
+    "note": ""
+  },
+  "Mangas": {
+    "tag": "\ud83d\udfe2 Titolare",
+    "note": "esterno 3-4-3"
+  },
+  "Colpani": {
+    "tag": "\ud83d\udfe2 Titolare",
+    "note": "ballottaggio Ciurria"
+  },
+  "Ciurria": {
+    "tag": "\ud83d\udfe2 Titolare",
+    "note": "ballottaggio Colpani"
+  },
+  "Varela G.": {
+    "tag": "\ud83d\udfe2 Titolare",
+    "note": ""
+  },
+  "Meret": {
+    "tag": "\ud83d\udfe2 Titolare",
+    "note": ""
+  },
+  "Rrahmani": {
+    "tag": "\ud83d\udfe2 Titolare",
+    "note": ""
+  },
+  "Spinazzola": {
+    "tag": "\ud83d\udfe2 Titolare",
+    "note": ""
+  },
+  "De Bruyne": {
+    "tag": "\ud83d\udd34 Rigorista",
+    "note": ""
+  },
+  "Lobotka": {
+    "tag": "\ud83d\udfe2 Titolare",
+    "note": ""
+  },
+  "McTominay": {
+    "tag": "\ud83d\udfe2 Titolare",
+    "note": ""
+  },
+  "Politano": {
+    "tag": "\ud83d\udfe2 Titolare",
+    "note": "ballottaggio Neres"
+  },
+  "Neres": {
+    "tag": "\ud83d\udfe2 Titolare",
+    "note": "ballottaggio Politano"
+  },
+  "Hojlund": {
+    "tag": "\ud83d\udfe2 Titolare",
+    "note": ""
+  },
+  "Santos A.": {
+    "tag": "\ud83d\udfe2 Titolare",
+    "note": ""
+  },
+  "Corvi": {
+    "tag": "\ud83d\udfe2 Titolare",
+    "note": "ballottaggio Daffara"
+  },
+  "Daffara": {
+    "tag": "\ud83d\udfe2 Titolare",
+    "note": "ballottaggio Corvi"
+  },
+  "Delprato": {
+    "tag": "\ud83d\udfe2 Titolare",
+    "note": ""
+  },
+  "Troilo": {
+    "tag": "\ud83d\udfe2 Titolare",
+    "note": ""
+  },
+  "Valenti": {
+    "tag": "\ud83d\udfe2 Titolare",
+    "note": ""
+  },
+  "Valeri": {
+    "tag": "\ud83d\udfe2 Titolare",
+    "note": ""
+  },
+  "Bernab\u00e8": {
+    "tag": "\ud83d\udfe2 Titolare",
+    "note": ""
+  },
+  "Keita M.": {
+    "tag": "\ud83d\udfe2 Titolare",
+    "note": ""
+  },
+  "Nicolussi Caviglia": {
+    "tag": "\ud83d\udfe2 Titolare",
+    "note": "ballottaggio Sorensen"
+  },
+  "Lontani": {
+    "tag": "\ud83d\udfe2 Titolare",
+    "note": ""
+  },
+  "Romero D.": {
+    "tag": "\ud83d\udfe2 Titolare",
+    "note": "ballottaggio Elphege"
+  },
+  "Tour\u00e8 E.": {
+    "tag": "\ud83d\udd34 Rigorista",
+    "note": ""
+  },
+  "Svilar": {
+    "tag": "\ud83d\udfe2 Titolare",
+    "note": ""
+  },
+  "Mancini": {
+    "tag": "\ud83d\udfe2 Titolare",
+    "note": ""
+  },
+  "N'Dicka": {
+    "tag": "\ud83d\udfe2 Titolare",
+    "note": ""
+  },
+  "Hermoso": {
+    "tag": "\ud83d\udfe2 Titolare",
+    "note": "ballottaggio Kouleriakis"
+  },
+  "Koulierakis": {
+    "tag": "\ud83d\udfe2 Titolare",
+    "note": "ballottaggio Hermoso"
+  },
+  "Wesley": {
+    "tag": "\ud83d\udfe2 Titolare",
+    "note": "esterno 3-4-3"
+  },
+  "Molina N.": {
+    "tag": "\ud83d\udfe2 Titolare",
+    "note": "esterno 3-4-3"
+  },
+  "Cristante": {
+    "tag": "\ud83d\udfe2 Titolare",
+    "note": ""
+  },
+  "Kon\u00e8 M.": {
+    "tag": "\ud83d\udfe2 Titolare",
+    "note": ""
+  },
+  "Dybala": {
+    "tag": "\ud83d\udfe2 Titolare",
+    "note": ""
+  },
+  "Mora": {
+    "tag": "\ud83d\udfe2 Titolare",
+    "note": "esterno d'attacco 3-4-3"
+  },
+  "Malen": {
+    "tag": "\ud83d\udfe2 Titolare",
+    "note": ""
+  },
+  "Muric": {
+    "tag": "\ud83d\udfe2 Titolare",
+    "note": "ballottaggio Turati"
+  },
+  "Walukiewicz": {
+    "tag": "\ud83d\udfe2 Titolare",
+    "note": "ballottaggio Cand\u00e8"
+  },
+  "Idzes": {
+    "tag": "\ud83d\udfe2 Titolare",
+    "note": ""
+  },
+  "Obrador": {
+    "tag": "\ud83d\udfe2 Titolare",
+    "note": ""
+  },
+  "Matic": {
+    "tag": "\ud83d\udfe2 Titolare",
+    "note": ""
+  },
+  "Lipani": {
+    "tag": "\ud83d\udfe2 Titolare",
+    "note": "ballottaggio Kon\u00e8 I."
+  },
+  "Thorstvedt": {
+    "tag": "\ud83d\udfe2 Titolare",
+    "note": "se gioca, trequartista 4-2-3-1"
+  },
+  "Laurient\u00e8": {
+    "tag": "\ud83d\udfe2 Titolare",
+    "note": ""
+  },
+  "Berardi": {
+    "tag": "\ud83d\udd34 Rigorista",
+    "note": ""
+  },
+  "Pinamonti": {
+    "tag": "\ud83d\udfe2 Titolare",
+    "note": "VA ALLA LAZIO"
+  },
+  "Bowie": {
+    "tag": "\ud83d\udfe2 Titolare",
+    "note": "TITOLARE se Pinamonti-Lazio"
+  },
+  "Paleari": {
+    "tag": "\ud83d\udfe2 Titolare",
+    "note": ""
+  },
+  "Comuzzo": {
+    "tag": "\ud83d\udfe2 Titolare",
+    "note": ""
+  },
+  "Comert": {
+    "tag": "\ud83d\udfe2 Titolare",
+    "note": ""
+  },
+  "Pedersen": {
+    "tag": "\ud83d\udfe2 Titolare",
+    "note": "esterno 3-4-2-1"
+  },
+  "Gineitis": {
+    "tag": "\ud83d\udfe2 Titolare",
+    "note": "ballottaggio Casadei"
+  },
+  "Fitz-Jim": {
+    "tag": "\ud83d\udfe2 Titolare",
+    "note": "ballottaggio Casadei"
+  },
+  "Cacciamani": {
+    "tag": "\ud83d\udfe2 Titolare",
+    "note": ""
+  },
+  "Vlasic": {
+    "tag": "\ud83d\udd34 Rigorista",
+    "note": "esterno d'attacco 3-4-2-1"
+  },
+  "Simeone": {
+    "tag": "\ud83d\udfe2 Titolare",
+    "note": ""
+  },
+  "Okoye": {
+    "tag": "\ud83d\udfe2 Titolare",
+    "note": ""
+  },
+  "Kabasele": {
+    "tag": "\ud83d\udfe2 Titolare",
+    "note": ""
+  },
+  "Solet": {
+    "tag": "\ud83d\udfe2 Titolare",
+    "note": ""
+  },
+  "Vojvoda": {
+    "tag": "\ud83d\udfe2 Titolare",
+    "note": "esterno 3-4-2-1"
+  },
+  "Karlstrom": {
+    "tag": "\ud83d\udfe2 Titolare",
+    "note": ""
+  },
+  "Kamara H.": {
+    "tag": "\ud83d\udfe2 Titolare",
+    "note": "esterno 3-4-2-1"
+  },
+  "Ekkelenkamp": {
+    "tag": "\ud83d\udfe2 Titolare",
+    "note": "trequartista 3-4-2-1"
+  },
+  "Davis K.": {
+    "tag": "\ud83d\udd34 Rigorista",
+    "note": ""
+  },
+  "Stankovic F.": {
+    "tag": "\ud83d\udfe2 Titolare",
+    "note": ""
+  },
+  "Schingtienne": {
+    "tag": "\ud83d\udfe2 Titolare",
+    "note": ""
+  },
+  "Bella-Kotchap": {
+    "tag": "\ud83d\udfe2 Titolare",
+    "note": ""
+  },
+  "Haps": {
+    "tag": "\ud83d\udfe2 Titolare",
+    "note": "esterno 3-5-2"
+  },
+  "Busio": {
+    "tag": "\ud83d\udd34 Rigorista",
+    "note": ""
+  },
+  "Basic": {
+    "tag": "\ud83d\udfe2 Titolare",
+    "note": ""
+  },
+  "Sohm": {
+    "tag": "\ud83d\udfe2 Titolare",
+    "note": ""
+  },
+  "Adams A.": {
+    "tag": "\ud83d\udfe2 Titolare",
+    "note": ""
+  },
+  "Ellertsson": {
+    "tag": "\ud83d\udfe2 Titolare",
+    "note": "ballottaggio Mitaj/esterno 3-4-2-1"
+  },
+  "Adzic": {
+    "tag": "\ud83d\udd35 Scommessa / Slot Scommessa",
+    "note": "se gioca, trequartista 4-2-3-1"
+  }
+}
