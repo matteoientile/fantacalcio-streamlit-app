@@ -17,6 +17,16 @@ from src.metrics import (
     ROSTER_LIMIT,
 )
 
+from src.i18n import TRANSLATIONS
+
+# Language Switcher
+lang_choice = st.sidebar.radio("🌐 Language / Lingua", ["🇮🇹 IT", "🇬🇧 EN"], horizontal=True)
+lang_key = "IT" if "IT" in lang_choice else "EN"
+
+def t(key, **kwargs):
+    text = TRANSLATIONS[lang_key].get(key, key)
+    return text.format(**kwargs) if kwargs else text
+
 st.set_page_config(page_title="Fantacalcio Auction Engine", layout="wide", initial_sidebar_state="expanded")
 
 # File paths
