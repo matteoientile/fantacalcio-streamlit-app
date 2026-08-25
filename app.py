@@ -694,7 +694,7 @@ with tab1:
         avail_pool.sort_values(by='Target_cr', ascending=False)[selected_columns],
         use_container_width=True,
         hide_index=True,
-        height=550,
+        height=700,
         column_config=column_configuration
     )
 
