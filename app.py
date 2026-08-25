@@ -25,6 +25,7 @@ DATA_DIR = os.path.join(ROOT_DIR, "data", "processed")
 DRAFT_LOG_PATH = os.path.join(ROOT_DIR, "data", "draft_log.json")
 DRAFT_LOG_BACKUP_PATH = os.path.join(ROOT_DIR, "data", "draft_log.backup.json")
 LEAGUE_CONFIG_PATH = os.path.join(ROOT_DIR, "data", "league_config.json")
+TARGETS_PATH = os.path.join(ROOT_DIR, "data", "player_targets.json")
 
 # Default league parameters
 DEFAULT_CONFIG = {
@@ -75,6 +76,7 @@ TRANSLATIONS = {
         "tab2": "🎯 Live Player HUD",
         "tab3": "🏆 League & Opponent Rosters",
         "tab4": "🛡️ Modificatore Sandbox",
+        "tab5": "🎯 Personal Targets & Flags",
         "quick_logger": "⚡ Live Call & Quick Logger",
         "player_called": "Player Called:",
         "bought_by": "Bought By:",
@@ -90,6 +92,9 @@ TRANSLATIONS = {
         "min_pres": "Min Pres. 25/26:",
         "quick_search": "Quick Search (Name or Team):",
         "visible_cols": "Select Visible Columns:",
+        "tag_filter": "Filter by Tag:",
+        "tag_all": "All Players",
+        "tag_only_flagged": "⭐ Only Flagged Targets",
         "search_hud": "Search Target Player:",
         "drafted_by_warn": "⚠️ Drafted by **{buyer}** for **{price} cr**",
         "log_this_player": "Log This Player",
@@ -130,7 +135,16 @@ TRANSLATIONS = {
         "t4_chart_title": "Modifier Tier Probability Breakdown",
         "t4_chart_tier": "Modifier Tier",
         "t4_chart_prob": "Probability (%)",
-        "t4_insufficient": "Insufficient appearance records for one or more chosen players."
+        "t4_insufficient": "Insufficient appearance records for one or more chosen players.",
+        "t5_title": "🎯 Personal Targets & Custom Color Flags",
+        "t5_subtitle": "Assign strategic tags and personal notes to priority targets.",
+        "t5_select_player": "Select Player to Flag:",
+        "t5_select_tag": "Assign Color Tag / Strategy:",
+        "t5_notes": "Personal Scouting Note / Notes (Optional):",
+        "t5_save_btn": "Save / Update Tag",
+        "t5_saved_msg": "Flag updated for {p}: {tag}",
+        "t5_flagged_title": "📑 Active Priority Targets Portfolio",
+        "t5_no_targets": "No targets flagged yet. Add tags above to build your shortlist!"
     },
     "IT": {
         "lang_label": "🌐 Language / Lingua",
@@ -172,6 +186,7 @@ TRANSLATIONS = {
         "tab2": "🎯 HUD Giocatore Live",
         "tab3": "🏆 Rose Lega & Avversari",
         "tab4": "🛡️ Modificatore Sandbox",
+        "tab5": "🎯 Obiettivi Personali & Flag",
         "quick_logger": "⚡ Chiamata Live & Inserimento Rapido",
         "player_called": "Giocatore Chiamato:",
         "bought_by": "Acquistato Da:",
@@ -187,6 +202,9 @@ TRANSLATIONS = {
         "min_pres": "Presenze Minime 25/26:",
         "quick_search": "Cerca Rapida (Nome o Squadra):",
         "visible_cols": "Seleziona Colonne Visibili:",
+        "tag_filter": "Filtro Flag / Tag:",
+        "tag_all": "Tutti i Giocatori",
+        "tag_only_flagged": "⭐ Solo Obiettivi Flagged",
         "search_hud": "Cerca Giocatore Bersaglio:",
         "drafted_by_warn": "⚠️ Acquistato da **{buyer}** a **{price} cr**",
         "log_this_player": "Registra Questo Giocatore",
@@ -227,9 +245,27 @@ TRANSLATIONS = {
         "t4_chart_title": "Distribuzione Probabilità Fasce Modificatore",
         "t4_chart_tier": "Fascia Modificatore",
         "t4_chart_prob": "Probabilità (%)",
-        "t4_insufficient": "Storico presenze insufficiente per uno o più giocatori selezionati."
+        "t4_insufficient": "Storico presenze insufficiente per uno o più giocatori selezionati.",
+        "t5_title": "🎯 Obiettivi Personali & Flag Colorati",
+        "t5_subtitle": "Assegna tag strategici e note personali ai tuoi bersagli d'asta.",
+        "t5_select_player": "Seleziona Giocatore da Contrassegnare:",
+        "t5_select_tag": "Assegna Flag / Categoria Strategica:",
+        "t5_notes": "Note Personali / Strategia (Opzionale):",
+        "t5_save_btn": "Salva / Aggiorna Tag",
+        "t5_saved_msg": "Tag aggiornato per {p}: {tag}",
+        "t5_flagged_title": "📑 Portfolio Obiettivi Attivi",
+        "t5_no_targets": "Nessun obiettivo contrassegnato. Aggiungi i tuoi primi tag in alto per costruire la shortlist!"
     }
 }
+
+TAG_OPTIONS = [
+    "⚪ Nessun Tag / Clear",
+    "🔴 Rigorista",
+    "🟢 Piazzati / Corner",
+    "🟡 Sottovalutato / Affare",
+    "🟣 Top Target Primario",
+    "🔵 Scommessa / Slot Scommessa"
+]
 
 # ----------------- CONFIG & PERSISTENCE -----------------
 def load_league_config():
@@ -268,6 +304,21 @@ def save_draft_log(log_data):
     with open(DRAFT_LOG_PATH, "w") as f:
         json.dump(log_data, f, indent=2)
 
+def load_player_targets():
+    if os.path.exists(TARGETS_PATH):
+        try:
+            with open(TARGETS_PATH, "r") as f:
+                data = json.load(f)
+                if isinstance(data, dict):
+                    return data
+        except Exception:
+            return {}
+    return {}
+
+def save_player_targets(targets_data):
+    with open(TARGETS_PATH, "w") as f:
+        json.dump(targets_data, f, indent=2)
+
 # ----------------- LOAD DATA & SESSION STATE -----------------
 @st.cache_data
 def load_data():
@@ -282,6 +333,8 @@ if "league_config" not in st.session_state:
     st.session_state.league_config = load_league_config()
 if "draft_log" not in st.session_state:
     st.session_state.draft_log = load_draft_log()
+if "player_targets" not in st.session_state:
+    st.session_state.player_targets = load_player_targets()
 if "confirm_reset" not in st.session_state:
     st.session_state.confirm_reset = False
 if "selected_player" not in st.session_state:
@@ -470,11 +523,12 @@ def sync_from_t2():
     st.session_state.t1_player = st.session_state.t2_player
 
 # ----------------- MAIN TABS -----------------
-tab1, tab2, tab3, tab4 = st.tabs([
+tab1, tab2, tab3, tab4, tab5 = st.tabs([
     t("tab1"), 
     t("tab2"), 
     t("tab3"), 
-    t("tab4")
+    t("tab4"),
+    t("tab5")
 ])
 
 # ----------------- TAB 1: MASTER LISTONE & LIVE LOGGER -----------------
@@ -542,15 +596,22 @@ with tab1:
     # 3. Master Undrafted Listone
     st.markdown(f"##### {t('undrafted_listone')}")
     
-    c_filter1, c_filter2, c_filter3 = st.columns([1, 1, 2])
+    c_filter1, c_filter2, c_filter3, c_filter4 = st.columns([1, 1, 1.5, 2])
     with c_filter1:
         role_filter = st.selectbox(t("role_filter"), ['All', 'P', 'D', 'C', 'A'], key="t1_role")
     with c_filter2:
         min_presenze = st.number_input(t("min_pres"), min_value=0, max_value=38, value=0, step=1, key="t1_pres")
     with c_filter3:
+        tag_filter = st.selectbox(t("tag_filter"), [t("tag_all"), t("tag_only_flagged")] + TAG_OPTIONS[1:], key="t1_tag_filter")
+    with c_filter4:
         search_query = st.text_input(t("quick_search"), "", key="t1_search")
     
     avail_pool = available_profiles_df.copy()
+    
+    # Attach Tags from persistent storage
+    targets_map = st.session_state.player_targets
+    avail_pool['Tag'] = avail_pool['Nome'].map(lambda name: targets_map.get(name, {}).get("tag", ""))
+    avail_pool['Note'] = avail_pool['Nome'].map(lambda name: targets_map.get(name, {}).get("note", ""))
     
     if role_filter != 'All':
         avail_pool = avail_pool[avail_pool['Ruolo'] == role_filter]
@@ -558,6 +619,11 @@ with tab1:
     if min_presenze > 0 and 'Presenze_Last_Season' in avail_pool.columns:
         avail_pool = avail_pool[avail_pool['Presenze_Last_Season'] >= min_presenze]
         
+    if tag_filter == t("tag_only_flagged"):
+        avail_pool = avail_pool[avail_pool['Tag'] != ""]
+    elif tag_filter != t("tag_all") and tag_filter != "":
+        avail_pool = avail_pool[avail_pool['Tag'] == tag_filter]
+
     if search_query:
         mask = (
             avail_pool['Nome'].str.contains(search_query, case=False, na=False) |
@@ -582,16 +648,16 @@ with tab1:
             avail_pool[int_col] = avail_pool[int_col].fillna(0).astype(int)
 
     all_possible_cols = [
-        'Nome', 'Squadra', 'Ruolo', 'Target_cr', 'Max_cr', 'Archetype',
+        'Tag', 'Nome', 'Squadra', 'Ruolo', 'Target_cr', 'Max_cr', 'Archetype',
         'Presenze_Last_Season', 'Presenze_Tot',
         'FM_W', 'FM_Raw', 'MV_W', 'MV_Raw',
         'P_ge_6', 'P_ge_6_5', 'P_lt_6',
         'Tot_Gol', 'Tot_Ass', 'Tot_Gs', 'Tot_Amm', 'Tot_Esp',
-        'Bonus_per_Game', 'Malus_per_Game', 'Clean_Sheet_Rate'
+        'Bonus_per_Game', 'Malus_per_Game', 'Clean_Sheet_Rate', 'Note'
     ]
     
     default_selected = [
-        'Nome', 'Squadra', 'Ruolo', 'Target_cr', 'Max_cr',
+        'Tag', 'Nome', 'Squadra', 'Ruolo', 'Target_cr', 'Max_cr',
         'Presenze_Last_Season', 'Presenze_Tot',
         'FM_W', 'FM_Raw', 'MV_W', 'MV_Raw',
         'P_ge_6', 'P_ge_6_5', 'P_lt_6', 
@@ -606,6 +672,7 @@ with tab1:
     )
 
     column_configuration = {
+        "Tag": st.column_config.TextColumn("Tag", width="medium"),
         "Target_cr": st.column_config.NumberColumn("Target (cr)", format="%d cr"),
         "Max_cr": st.column_config.NumberColumn("Max (cr)", format="%d cr"),
         "Presenze_Last_Season": st.column_config.NumberColumn("Pres 25/26", format="%d"),
@@ -650,6 +717,12 @@ with tab2:
     p_info = profiles_df[profiles_df['Nome'] == selected_player].iloc[0]
     p_matches = matches_df[(matches_df['Cod.'] == p_info['Cod.']) & (matches_df['Voto_Puro'].notna())]
     fair_price, walk_away_price = get_dynamic_prices(p_info)
+
+    # Display active flag if tagged
+    p_tag = st.session_state.player_targets.get(selected_player, {}).get("tag", "")
+    p_note = st.session_state.player_targets.get(selected_player, {}).get("note", "")
+    if p_tag:
+        st.info(f"**Target Flag:** {p_tag}" + (f" | *Note:* {p_note}" if p_note else ""))
 
     is_drafted = selected_player in drafted_names
     if is_drafted:
@@ -809,3 +882,82 @@ with tab4:
         st.plotly_chart(fig_prob, use_container_width=True)
     else:
         st.warning(t("t4_insufficient"))
+
+# ----------------- TAB 5: PERSONAL TARGETS & FLAGS -----------------
+with tab5:
+    st.markdown(f"### {t('t5_title')}")
+    st.caption(t("t5_subtitle"))
+
+    all_players_sorted = profiles_df['Nome'].sort_values().unique().tolist()
+
+    c_t5_p, c_t5_tag, c_t5_note, c_t5_btn = st.columns([2.5, 2, 2.5, 1.5])
+    with c_t5_p:
+        tag_target_player = st.selectbox(t("t5_select_player"), options=all_players_sorted, key="t5_target_player")
+    with c_t5_tag:
+        curr_saved_tag = st.session_state.player_targets.get(tag_target_player, {}).get("tag", TAG_OPTIONS[0])
+        default_tag_idx = TAG_OPTIONS.index(curr_saved_tag) if curr_saved_tag in TAG_OPTIONS else 0
+        tag_choice = st.selectbox(t("t5_select_tag"), options=TAG_OPTIONS, index=default_tag_idx, key="t5_tag_choice")
+    with c_t5_note:
+        curr_saved_note = st.session_state.player_targets.get(tag_target_player, {}).get("note", "")
+        note_choice = st.text_input(t("t5_notes"), value=curr_saved_note, key="t5_note_choice")
+    with c_t5_btn:
+        st.write("")
+        st.write("")
+        if st.button(t("t5_save_btn"), type="primary", use_container_width=True, key="t5_save_tag_btn"):
+            if tag_choice == TAG_OPTIONS[0]:
+                st.session_state.player_targets.pop(tag_target_player, None)
+            else:
+                st.session_state.player_targets[tag_target_player] = {
+                    "tag": tag_choice,
+                    "note": note_choice.strip()
+                }
+            save_player_targets(st.session_state.player_targets)
+            st.success(t("t5_saved_msg", p=tag_target_player, tag=tag_choice))
+            st.rerun()
+
+    st.markdown("---")
+    st.markdown(f"#### {t('t5_flagged_title')}")
+
+    active_targets = st.session_state.player_targets
+    if active_targets:
+        targets_table = []
+        for p_name, p_meta in active_targets.items():
+            if p_name in profiles_df['Nome'].values:
+                row = profiles_df[profiles_df['Nome'] == p_name].iloc[0]
+                is_taken = p_name in drafted_names
+                buyer_str = draft_df[draft_df['player'] == p_name]['buyer'].iloc[0] if is_taken else "Available / Svincolato"
+                fp, wa = get_dynamic_prices(row)
+                
+                targets_table.append({
+                    "Tag": p_meta.get("tag", ""),
+                    "Giocatore": p_name,
+                    "Ruolo": row['Ruolo'],
+                    "Squadra": row['Squadra'],
+                    "Target (cr)": int(fp),
+                    "Max (cr)": int(wa),
+                    "FM (W)": round(row['Fanta_Media_Weighted'], 2),
+                    "MV (W)": round(row['Media_Voto_Weighted'], 2),
+                    "P(Voto ≥ 6)": row['P_Voto_ge_6'],
+                    "Status": buyer_str,
+                    "Note": p_meta.get("note", "")
+                })
+
+        targets_df = pd.DataFrame(targets_table)
+        
+        target_col_config = {
+            "Tag": st.column_config.TextColumn("Tag", width="medium"),
+            "Target (cr)": st.column_config.NumberColumn("Target (cr)", format="%d cr"),
+            "Max (cr)": st.column_config.NumberColumn("Max (cr)", format="%d cr"),
+            "FM (W)": st.column_config.NumberColumn("FM (W)", format="%.2f"),
+            "MV (W)": st.column_config.NumberColumn("MV (W)", format="%.2f"),
+            "P(Voto ≥ 6)": st.column_config.NumberColumn("P(Voto ≥ 6)", format="%.1f%%"),
+        }
+
+        st.dataframe(
+            targets_df.sort_values(by=["Tag", "Target (cr)"], ascending=[True, False]),
+            use_container_width=True,
+            hide_index=True,
+            column_config=target_col_config
+        )
+    else:
+        st.info(t("t5_no_targets"))
