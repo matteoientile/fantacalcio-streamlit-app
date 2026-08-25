@@ -17,16 +17,6 @@ from src.metrics import (
     ROSTER_LIMIT,
 )
 
-from src.i18n import TRANSLATIONS
-
-# Language Switcher
-lang_choice = st.sidebar.radio("🌐 Language / Lingua", ["🇮🇹 IT", "🇬🇧 EN"], horizontal=True)
-lang_key = "IT" if "IT" in lang_choice else "EN"
-
-def t(key, **kwargs):
-    text = TRANSLATIONS[lang_key].get(key, key)
-    return text.format(**kwargs) if kwargs else text
-
 st.set_page_config(page_title="Fantacalcio Auction Engine", layout="wide", initial_sidebar_state="expanded")
 
 # File paths
@@ -41,6 +31,204 @@ DEFAULT_CONFIG = {
     "num_teams": 12,
     "starting_budget": 500,
     "managers": ["Me"] + [f"Team {i}" for i in range(2, 13)]
+}
+
+# ----------------- TRANSLATIONS DICTIONARY -----------------
+TRANSLATIONS = {
+    "EN": {
+        "lang_label": "🌐 Language / Lingua",
+        "sidebar_title": "💰 Live Auction State",
+        "league_settings": "⚙️ League Settings & Managers",
+        "teams": "Teams",
+        "budget": "Budget (cr)",
+        "paste_caption": "Paste all **{n}** manager names (one per line or comma-separated). **The first name is your team.**",
+        "save_settings": "Save League Settings",
+        "settings_saved": "✅ League settings saved!",
+        "settings_error": "Provided {found} names, but selected {expected} teams.",
+        "my_budget": "{name}'s Remaining Budget",
+        "spent_delta": "-{spent} spent",
+        "slots_filled": "Roster Slots Filled",
+        "avg_cr_slot": "Avg Credits / Remaining Slot",
+        "total_room_spent": "Total Room Spent",
+        "inflation_idx": "Global Inflation Index",
+        "still_need": "🧩 Still Need",
+        "alloc_title": "🎛️ Target Budget Allocation",
+        "alloc_mode": "Allocation Mode:",
+        "alloc_pct": "Percentage (%)",
+        "alloc_abs": "Absolute Credits (cr)",
+        "role_p": "Portieri (P) %",
+        "role_d": "Difensori (D) %",
+        "role_c": "Centrocampisti (C) %",
+        "role_a": "Attaccanti (A) %",
+        "role_p_cr": "Portieri (P) cr",
+        "role_d_cr": "Difensori (D) cr",
+        "role_c_cr": "Centrocampisti (C) cr",
+        "role_a_cr": "Attaccanti (A) cr",
+        "alloc_sum_warn_pct": "⚠️ Total allocation: **{tot}%** (must sum to 100%)",
+        "alloc_sum_warn_cr": "⚠️ Total: **{tot} / {start} cr** ({sign}{diff} cr)",
+        "role_inflation": "📉 Inflation by Role",
+        "reset_draft": "⚠️ Reset Entire Draft",
+        "reset_confirm_msg": "This wipes the entire draft log. Are you sure?",
+        "reset_yes": "Yes, reset",
+        "reset_cancel": "Cancel",
+        "tab1": "📋 Master Listone & Live Logger",
+        "tab2": "🎯 Live Player HUD",
+        "tab3": "🏆 League & Opponent Rosters",
+        "tab4": "🛡️ Modificatore Sandbox",
+        "quick_logger": "⚡ Live Call & Quick Logger",
+        "player_called": "Player Called:",
+        "bought_by": "Bought By:",
+        "winning_bid": "Winning Bid (cr):",
+        "log_purchase": "Log Purchase",
+        "over_walkaway_warn": "⚠️ {price} cr exceeds your walk-away price of {wa} cr (fair price: {fp} cr) for **{p}**.",
+        "confirm_over": "Confirm over walk-away",
+        "log_success": "Logged {player} to {buyer} for {price} cr",
+        "recent_history": "🕒 Recent Auction History ({n} logged)",
+        "undo_last": "↩️ Undo Last",
+        "undrafted_listone": "📋 Complete Undrafted Listone",
+        "role_filter": "Role:",
+        "min_pres": "Min Pres. 25/26:",
+        "quick_search": "Quick Search (Name or Team):",
+        "visible_cols": "Select Visible Columns:",
+        "search_hud": "Search Target Player:",
+        "drafted_by_warn": "⚠️ Drafted by **{buyer}** for **{price} cr**",
+        "log_this_player": "Log This Player",
+        "hud_role_arch": "Role & Archetype",
+        "hud_mv_w": "Weighted Pure Voto",
+        "hud_fm_w": "Weighted Fantamedia",
+        "hud_target": "Fair Target Bid",
+        "hud_max": "Walk-Away Max",
+        "hud_p_ge_6": "P(Voto ≥ 6.0)",
+        "hud_p_ge_6_5": "P(Voto ≥ 6.5)",
+        "hud_tot_ga": "Total Goals / Assists",
+        "hud_malus": "Discipline Malus / Game",
+        "hud_chart_title": "📈 Pure Grade vs. Fantavoto Distribution",
+        "hud_trace_pure": "Pure Voto (Modifier Floor)",
+        "hud_trace_fanta": "Fantavoto (Bonus Upside)",
+        "t3_title": "🏆 League Standing, Liquidity & Opponent Rosters",
+        "t3_col_mgr": "Manager",
+        "t3_col_rem": "Remaining Budget (cr)",
+        "t3_col_spent": "Spent (cr)",
+        "t3_col_slots": "Slots",
+        "t3_col_max_bid": "Max Bid (cr)",
+        "t3_col_avg_cr": "Avg cr/Slot",
+        "t3_inspect": "🔍 Opponent Roster Inspector",
+        "t3_inspect_select": "Select Team to Inspect:",
+        "t3_spending_breakdown": "**{name} Spending Breakdown by Role**",
+        "t3_no_players": "{name} has not drafted any players yet.",
+        "t4_title": "🛡️ Live Defensive Modifier Engine",
+        "t4_gk": "Portiere (GK)",
+        "t4_d1": "Defender 1",
+        "t4_d2": "Defender 2",
+        "t4_d3": "Defender 3",
+        "t4_d4": "Defender 4",
+        "t4_exp_bonus": "Expected Modifier Bonus / Matchday",
+        "t4_proj_rating": "Projected Mean Backline Pure Rating",
+        "t4_sampling_mode": "Sampling Mode",
+        "t4_joint_mode": "Joint matchday (correlated)",
+        "t4_indep_mode": "Independent (fallback)",
+        "t4_chart_title": "Modifier Tier Probability Breakdown",
+        "t4_chart_tier": "Modifier Tier",
+        "t4_chart_prob": "Probability (%)",
+        "t4_insufficient": "Insufficient appearance records for one or more chosen players."
+    },
+    "IT": {
+        "lang_label": "🌐 Language / Lingua",
+        "sidebar_title": "💰 Stato Asta Live",
+        "league_settings": "⚙️ Impostazioni Lega & Fantallenatori",
+        "teams": "Squadre",
+        "budget": "Budget (cr)",
+        "paste_caption": "Incolla tutti i **{n}** fantallenatori (uno per riga o separati da virgola). **Il primo sei tu.**",
+        "save_settings": "Salva Impostazioni Lega",
+        "settings_saved": "✅ Impostazioni lega salvate!",
+        "settings_error": "Inseriti {found} nomi, ma sono state selezionate {expected} squadre.",
+        "my_budget": "Budget Residuo di {name}",
+        "spent_delta": "-{spent} spesi",
+        "slots_filled": "Slot Roster Completati",
+        "avg_cr_slot": "Media Crediti / Slot Rimanente",
+        "total_room_spent": "Crediti Spesi Totali nella Lega",
+        "inflation_idx": "Indice d'Inflazione Globale",
+        "still_need": "🧩 Mancanti al Roster",
+        "alloc_title": "🎛️ Allocazione Budget Obiettivo",
+        "alloc_mode": "Modalità Allocazione:",
+        "alloc_pct": "Percentuale (%)",
+        "alloc_abs": "Crediti Assoluti (cr)",
+        "role_p": "Portieri (P) %",
+        "role_d": "Difensori (D) %",
+        "role_c": "Centrocampisti (C) %",
+        "role_a": "Attaccanti (A) %",
+        "role_p_cr": "Portieri (P) cr",
+        "role_d_cr": "Difensori (D) cr",
+        "role_c_cr": "Centrocampisti (C) cr",
+        "role_a_cr": "Attaccanti (A) cr",
+        "alloc_sum_warn_pct": "⚠️ Totale allocazione: **{tot}%** (la somma deve fare 100%)",
+        "alloc_sum_warn_cr": "⚠️ Totale: **{tot} / {start} cr** ({sign}{diff} cr)",
+        "role_inflation": "📉 Inflazione per Ruolo",
+        "reset_draft": "⚠️ Resetta Intera Asta",
+        "reset_confirm_msg": "Questo cancellerà l'intero storico acquisti. Sei sicuro?",
+        "reset_yes": "Sì, resetta",
+        "reset_cancel": "Annulla",
+        "tab1": "📋 Master Listone & Live Logger",
+        "tab2": "🎯 HUD Giocatore Live",
+        "tab3": "🏆 Rose Lega & Avversari",
+        "tab4": "🛡️ Modificatore Sandbox",
+        "quick_logger": "⚡ Chiamata Live & Inserimento Rapido",
+        "player_called": "Giocatore Chiamato:",
+        "bought_by": "Acquistato Da:",
+        "winning_bid": "Prezzo Finale (cr):",
+        "log_purchase": "Registra Acquisto",
+        "over_walkaway_warn": "⚠️ {price} cr supera il prezzo limite di {wa} cr (prezzo target: {fp} cr) per **{p}**.",
+        "confirm_over": "Conferma acquisto sopra il limite",
+        "log_success": "Registrato {player} a {buyer} per {price} cr",
+        "recent_history": "🕒 Storico Acquisti Recenti ({n} registrati)",
+        "undo_last": "↩️ Annulla Ultimo",
+        "undrafted_listone": "📋 Listone Completo Svincolati",
+        "role_filter": "Ruolo:",
+        "min_pres": "Presenze Minime 25/26:",
+        "quick_search": "Cerca Rapida (Nome o Squadra):",
+        "visible_cols": "Seleziona Colonne Visibili:",
+        "search_hud": "Cerca Giocatore Bersaglio:",
+        "drafted_by_warn": "⚠️ Acquistato da **{buyer}** a **{price} cr**",
+        "log_this_player": "Registra Questo Giocatore",
+        "hud_role_arch": "Ruolo & Archetipo",
+        "hud_mv_w": "Media Voto Pura Ponderata",
+        "hud_fm_w": "Fantamedia Ponderata",
+        "hud_target": "Prezzo Target Equo",
+        "hud_max": "Prezzo Limite (Walk-Away)",
+        "hud_p_ge_6": "P(Voto ≥ 6.0)",
+        "hud_p_ge_6_5": "P(Voto ≥ 6.5)",
+        "hud_tot_ga": "Gol / Assist Totali",
+        "hud_malus": "Malus Disciplina / Partita",
+        "hud_chart_title": "📈 Distribuzione Voto Puro vs. Fantavoto",
+        "hud_trace_pure": "Voto Puro (Floor Modificatore)",
+        "hud_trace_fanta": "Fantavoto (Upside Bonus)",
+        "t3_title": "🏆 Classifica Lega, Liquidità & Rose Avversari",
+        "t3_col_mgr": "Fantallenatore",
+        "t3_col_rem": "Budget Residuo (cr)",
+        "t3_col_spent": "Spesi (cr)",
+        "t3_col_slots": "Slot",
+        "t3_col_max_bid": "Offerta Max (cr)",
+        "t3_col_avg_cr": "Media cr/Slot",
+        "t3_inspect": "🔍 Ispettore Rosa Avversario",
+        "t3_inspect_select": "Seleziona Squadra da Analizzare:",
+        "t3_spending_breakdown": "**Distribuzione Spesa per Ruolo di {name}**",
+        "t3_no_players": "{name} non ha ancora acquistato giocatori.",
+        "t4_title": "🛡️ Simulatore Modificatore di Difesa Live",
+        "t4_gk": "Portiere (P)",
+        "t4_d1": "Difensore 1",
+        "t4_d2": "Difensore 2",
+        "t4_d3": "Difensore 3",
+        "t4_d4": "Difensore 4",
+        "t4_exp_bonus": "Bonus Modificatore Atteso / Giornata",
+        "t4_proj_rating": "Media Voto Pura Reparto Prevista",
+        "t4_sampling_mode": "Modalità Campionamento",
+        "t4_joint_mode": "Giornata Congiunta (correlata)",
+        "t4_indep_mode": "Indipendente (fallback)",
+        "t4_chart_title": "Distribuzione Probabilità Fasce Modificatore",
+        "t4_chart_tier": "Fascia Modificatore",
+        "t4_chart_prob": "Probabilità (%)",
+        "t4_insufficient": "Storico presenze insufficiente per uno o più giocatori selezionati."
+    }
 }
 
 # ----------------- CONFIG & PERSISTENCE -----------------
@@ -105,6 +293,14 @@ MANAGERS = st.session_state.league_config.get("managers", DEFAULT_CONFIG["manage
 MY_NAME = MANAGERS[0]
 TOTAL_LEAGUE_CREDITS = TOTAL_TEAMS * STARTING_BUDGET
 
+# ----------------- LANGUAGE SWITCHER & TRANSLATOR -----------------
+lang_choice = st.sidebar.radio("Language / Lingua", ["🇮🇹 IT", "🇬🇧 EN"], horizontal=True, key="lang_radio")
+current_lang = "IT" if "IT" in lang_choice else "EN"
+
+def t(key, **kwargs):
+    text = TRANSLATIONS[current_lang].get(key, key)
+    return text.format(**kwargs) if kwargs else text
+
 # ----------------- LIVE DRAFT CALCULATIONS -----------------
 draft_df = pd.DataFrame(st.session_state.draft_log) if st.session_state.draft_log else pd.DataFrame(columns=["player", "role", "buyer", "price"])
 
@@ -132,21 +328,21 @@ available_profiles_df = profiles_df[~profiles_df['Nome'].isin(drafted_names)].co
 role_pool_sum = compute_role_pool_sum(available_profiles_df)
 
 # ----------------- SIDEBAR: CONFIG & AUCTION STATE -----------------
-st.sidebar.title("💰 Live Auction State")
+st.sidebar.title(t("sidebar_title"))
 
-with st.sidebar.expander("⚙️ League Settings & Managers", expanded=False):
+with st.sidebar.expander(t("league_settings"), expanded=False):
     c_teams, c_bud = st.columns(2)
-    cfg_teams = c_teams.selectbox("Teams", [6, 8, 10, 12, 14], index=[6, 8, 10, 12, 14].index(TOTAL_TEAMS) if TOTAL_TEAMS in [6, 8, 10, 12, 14] else 3)
-    cfg_budget = c_bud.number_input("Budget (cr)", min_value=100, max_value=2000, value=STARTING_BUDGET, step=50)
+    cfg_teams = c_teams.selectbox(t("teams"), [6, 8, 10, 12, 14], index=[6, 8, 10, 12, 14].index(TOTAL_TEAMS) if TOTAL_TEAMS in [6, 8, 10, 12, 14] else 3)
+    cfg_budget = c_bud.number_input(t("budget"), min_value=100, max_value=2000, value=STARTING_BUDGET, step=50)
 
-    st.caption(f"Paste all **{cfg_teams}** manager names (one per line or comma-separated). **The first name is your team.**")
+    st.caption(t("paste_caption", n=cfg_teams))
     curr_names_str = "\n".join(MANAGERS[:cfg_teams])
-    raw_names_input = st.text_area("Manager List", value=curr_names_str, height=160)
+    raw_names_input = st.text_area("Manager List", value=curr_names_str, height=160, label_visibility="collapsed")
 
-    if st.button("Save League Settings", type="primary"):
+    if st.button(t("save_settings"), type="primary"):
         parsed_names = [n.strip() for n in raw_names_input.replace(",", "\n").split("\n") if n.strip()]
         if len(parsed_names) != cfg_teams:
-            st.error(f"Provided {len(parsed_names)} names, but selected {cfg_teams} teams.")
+            st.error(t("settings_error", found=len(parsed_names), expected=cfg_teams))
         else:
             updated_cfg = {
                 "num_teams": int(cfg_teams),
@@ -155,21 +351,21 @@ with st.sidebar.expander("⚙️ League Settings & Managers", expanded=False):
             }
             st.session_state.league_config = updated_cfg
             save_league_config(updated_cfg)
-            st.success("✅ League settings saved!")
+            st.success(t("settings_saved"))
             st.rerun()
 
-st.sidebar.metric(f"{MY_NAME}'s Remaining Budget", f"{my_budget} cr", delta=f"-{my_spent} spent" if my_spent > 0 else None)
-st.sidebar.metric("Roster Slots Filled", f"{my_slots_filled} / {ROSTER_LIMIT}")
+st.sidebar.metric(t("my_budget", name=MY_NAME), f"{my_budget} cr", delta=t("spent_delta", spent=my_spent) if my_spent > 0 else None)
+st.sidebar.metric(t("slots_filled"), f"{my_slots_filled} / {ROSTER_LIMIT}")
 
 slots_left = max(1, ROSTER_LIMIT - my_slots_filled)
 avg_per_slot = my_budget / slots_left
-st.sidebar.metric("Avg Credits / Remaining Slot", f"{avg_per_slot:.1f} cr")
+st.sidebar.metric(t("avg_cr_slot"), f"{avg_per_slot:.1f} cr")
 
-st.sidebar.metric("Total Room Spent", f"{total_spent_room} / {TOTAL_LEAGUE_CREDITS} cr")
-st.sidebar.metric("Global Inflation Index", f"{global_inflation_index:.2f}x")
+st.sidebar.metric(t("total_room_spent"), f"{total_spent_room} / {TOTAL_LEAGUE_CREDITS} cr")
+st.sidebar.metric(t("inflation_idx"), f"{global_inflation_index:.2f}x")
 
 # Role Needs
-st.sidebar.markdown("##### 🧩 Still Need")
+st.sidebar.markdown(f"##### {t('still_need')}")
 need_cols = st.sidebar.columns(4)
 for i, role in enumerate(['P', 'D', 'C', 'A']):
     have = my_role_slots_filled.get(role, 0)
@@ -178,19 +374,19 @@ for i, role in enumerate(['P', 'D', 'C', 'A']):
     need_cols[i].metric(role, f"{open_slots}", help=f"{have}/{total} filled")
 
 st.sidebar.markdown("---")
-st.sidebar.markdown("### 🎛️ Target Budget Allocation")
+st.sidebar.markdown(f"### {t('alloc_title')}")
 
-alloc_mode = st.sidebar.radio("Allocation Mode:", ["Percentage (%)", "Absolute Credits (cr)"], horizontal=True)
+alloc_mode = st.sidebar.radio(t("alloc_mode"), [t("alloc_pct"), t("alloc_abs")], horizontal=True)
 
-if alloc_mode == "Percentage (%)":
-    b_gk = st.sidebar.slider("Portieri (P) %", 3, 20, 8, step=1)
-    b_def = st.sidebar.slider("Difensori (D) %", 5, 35, 18, step=1)
-    b_mid = st.sidebar.slider("Centrocampisti (C)", 10, 45, 26, step=1)
-    b_fwd = st.sidebar.slider("Attaccanti (A) %", 25, 75, 48, step=1)
+if alloc_mode == t("alloc_pct"):
+    b_gk = st.sidebar.slider(t("role_p"), 3, 20, 8, step=1)
+    b_def = st.sidebar.slider(t("role_d"), 5, 35, 18, step=1)
+    b_mid = st.sidebar.slider(t("role_c"), 10, 45, 26, step=1)
+    b_fwd = st.sidebar.slider(t("role_a"), 25, 75, 48, step=1)
 
     total_alloc = b_gk + b_def + b_mid + b_fwd
     if total_alloc != 100:
-        st.sidebar.warning(f"⚠️ Total allocation: **{total_alloc}%** (must sum to 100%)")
+        st.sidebar.warning(t("alloc_sum_warn_pct", tot=total_alloc))
 
     role_budget_pct = {
         'P': b_gk / 100.0,
@@ -199,15 +395,15 @@ if alloc_mode == "Percentage (%)":
         'A': b_fwd / 100.0
     }
 else:
-    b_gk_cr = st.sidebar.number_input("Portieri (P) cr", min_value=3, max_value=STARTING_BUDGET, value=int(0.08 * STARTING_BUDGET), step=5)
-    b_def_cr = st.sidebar.number_input("Difensori (D) cr", min_value=8, max_value=STARTING_BUDGET, value=int(0.18 * STARTING_BUDGET), step=5)
-    b_mid_cr = st.sidebar.number_input("Centrocampisti (C) cr", min_value=8, max_value=STARTING_BUDGET, value=int(0.26 * STARTING_BUDGET), step=5)
-    b_fwd_cr = st.sidebar.number_input("Attaccanti (A) cr", min_value=6, max_value=STARTING_BUDGET, value=int(0.48 * STARTING_BUDGET), step=5)
+    b_gk_cr = st.sidebar.number_input(t("role_p_cr"), min_value=3, max_value=STARTING_BUDGET, value=int(0.08 * STARTING_BUDGET), step=5)
+    b_def_cr = st.sidebar.number_input(t("role_d_cr"), min_value=8, max_value=STARTING_BUDGET, value=int(0.18 * STARTING_BUDGET), step=5)
+    b_mid_cr = st.sidebar.number_input(t("role_c_cr"), min_value=8, max_value=STARTING_BUDGET, value=int(0.26 * STARTING_BUDGET), step=5)
+    b_fwd_cr = st.sidebar.number_input(t("role_a_cr"), min_value=6, max_value=STARTING_BUDGET, value=int(0.48 * STARTING_BUDGET), step=5)
 
     total_alloc = b_gk_cr + b_def_cr + b_mid_cr + b_fwd_cr
     if total_alloc != STARTING_BUDGET:
         diff = total_alloc - STARTING_BUDGET
-        st.sidebar.warning(f"⚠️ Total: **{total_alloc} / {STARTING_BUDGET} cr** ({'+' if diff > 0 else ''}{diff} cr)")
+        st.sidebar.warning(t("alloc_sum_warn_cr", tot=total_alloc, start=STARTING_BUDGET, sign='+' if diff > 0 else '', diff=diff))
 
     role_budget_pct = {
         'P': b_gk_cr / float(STARTING_BUDGET),
@@ -219,25 +415,25 @@ else:
 role_inflation = compute_role_inflation(draft_df, role_budget_pct, TOTAL_LEAGUE_CREDITS)
 
 st.sidebar.markdown("---")
-st.sidebar.markdown("##### 📉 Inflation by Role")
+st.sidebar.markdown(f"##### {t('role_inflation')}")
 infl_cols = st.sidebar.columns(4)
 for i, role in enumerate(['P', 'D', 'C', 'A']):
     infl_cols[i].metric(role, f"{role_inflation[role]:.2f}x")
 
 st.sidebar.markdown("---")
 if not st.session_state.confirm_reset:
-    if st.sidebar.button("⚠️ Reset Entire Draft"):
+    if st.sidebar.button(t("reset_draft")):
         st.session_state.confirm_reset = True
         st.rerun()
 else:
-    st.sidebar.error("This wipes the entire draft log. Are you sure?")
+    st.sidebar.error(t("reset_confirm_msg"))
     rc1, rc2 = st.sidebar.columns(2)
-    if rc1.button("Yes, reset", type="primary"):
+    if rc1.button(t("reset_yes"), type="primary"):
         st.session_state.draft_log = []
         save_draft_log([])
         st.session_state.confirm_reset = False
         st.rerun()
-    if rc2.button("Cancel"):
+    if rc2.button(t("reset_cancel")):
         st.session_state.confirm_reset = False
         st.rerun()
 
@@ -275,20 +471,19 @@ def sync_from_t2():
 
 # ----------------- MAIN TABS -----------------
 tab1, tab2, tab3, tab4 = st.tabs([
-    "📋 Master Listone & Live Logger", 
-    "🎯 Live Player HUD", 
-    "🏆 League & Opponent Rosters", 
-    "🛡️ Modificatore Sandbox"
+    t("tab1"), 
+    t("tab2"), 
+    t("tab3"), 
+    t("tab4")
 ])
 
 # ----------------- TAB 1: MASTER LISTONE & LIVE LOGGER -----------------
 with tab1:
-    st.markdown("### ⚡ Live Call & Quick Logger")
+    st.markdown(f"### {t('quick_logger')}")
     
     available_players = available_profiles_df.sort_values('Nome')
     t1_options = available_players['Nome'].tolist()
     
-    # Ensure keys exist in session_state
     if "t1_player" not in st.session_state or st.session_state.t1_player not in t1_options:
         if len(t1_options) > 0:
             st.session_state.t1_player = t1_options[0]
@@ -297,16 +492,16 @@ with tab1:
     c_p, c_buyer, c_price, c_btn = st.columns([3, 2, 2, 2])
     with c_p:
         log_player = st.selectbox(
-            "Player Called:",
+            t("player_called"),
             options=t1_options,
             key="t1_player",
             on_change=sync_from_t1
         )
     with c_buyer:
-        log_buyer = st.selectbox("Bought By:", options=MANAGERS, key="t1_buyer")
+        log_buyer = st.selectbox(t("bought_by"), options=MANAGERS, key="t1_buyer")
     with c_price:
         max_bid_possible = my_budget if log_buyer == MY_NAME else STARTING_BUDGET
-        log_price = st.number_input("Winning Bid (cr):", min_value=1, max_value=max_bid_possible, value=1, step=1, key="t1_price")
+        log_price = st.number_input(t("winning_bid"), min_value=1, max_value=max_bid_possible, value=1, step=1, key="t1_price")
     with c_btn:
         st.write("")
         st.write("")
@@ -318,26 +513,26 @@ with tab1:
         fp, wa = get_dynamic_prices(row)
         if log_price > wa:
             over_walkaway = True
-            st.warning(f"⚠️ {log_price} cr exceeds your walk-away price of {wa} cr (fair price: {fp} cr) for **{log_player}**.")
+            st.warning(t("over_walkaway_warn", price=log_price, wa=wa, fp=fp, p=log_player))
 
     with log_btn_placeholder:
         if over_walkaway:
-            confirm_over = st.checkbox("Confirm over walk-away", key="t1_confirm_over")
+            confirm_over = st.checkbox(t("confirm_over"), key="t1_confirm_over")
             disabled = not confirm_over
         else:
             disabled = False
-        if st.button("Log Purchase", use_container_width=True, type="primary", disabled=disabled, key="t1_log_btn"):
+        if st.button(t("log_purchase"), use_container_width=True, type="primary", disabled=disabled, key="t1_log_btn"):
             log_purchase(log_player, log_buyer, log_price)
-            st.success(f"Logged {log_player} to {log_buyer} for {log_price} cr")
+            st.success(t("log_success", player=log_player, buyer=log_buyer, price=log_price))
             st.rerun()
 
     if not draft_df.empty:
-        with st.expander(f"🕒 Recent Auction History ({len(draft_df)} logged)", expanded=False):
+        with st.expander(t("recent_history", n=len(draft_df)), expanded=False):
             col_table, col_undo = st.columns([5, 1])
             with col_table:
                 st.dataframe(draft_df.iloc[::-1], use_container_width=True, hide_index=True)
             with col_undo:
-                if st.button("↩️ Undo Last"):
+                if st.button(t("undo_last")):
                     st.session_state.draft_log.pop()
                     save_draft_log(st.session_state.draft_log)
                     st.rerun()
@@ -345,15 +540,15 @@ with tab1:
     st.markdown("---")
 
     # 3. Master Undrafted Listone
-    st.markdown("##### 📋 Complete Undrafted Listone")
+    st.markdown(f"##### {t('undrafted_listone')}")
     
     c_filter1, c_filter2, c_filter3 = st.columns([1, 1, 2])
     with c_filter1:
-        role_filter = st.selectbox("Role:", ['All', 'P', 'D', 'C', 'A'], key="t1_role")
+        role_filter = st.selectbox(t("role_filter"), ['All', 'P', 'D', 'C', 'A'], key="t1_role")
     with c_filter2:
-        min_presenze = st.number_input("Min Pres. 25/26:", min_value=0, max_value=38, value=0, step=1, key="t1_pres")
+        min_presenze = st.number_input(t("min_pres"), min_value=0, max_value=38, value=0, step=1, key="t1_pres")
     with c_filter3:
-        search_query = st.text_input("Quick Search (Name or Team):", "", key="t1_search")
+        search_query = st.text_input(t("quick_search"), "", key="t1_search")
     
     avail_pool = available_profiles_df.copy()
     
@@ -404,7 +599,7 @@ with tab1:
     ]
 
     selected_columns = st.multiselect(
-        "Select Visible Columns:",
+        t("visible_cols"),
         options=[c for c in all_possible_cols if c in avail_pool.columns],
         default=[c for c in default_selected if c in avail_pool.columns],
         key="t1_cols_picker"
@@ -446,7 +641,7 @@ with tab2:
     col_search, _ = st.columns([2, 1])
     with col_search:
         selected_player = st.selectbox(
-            "Search Target Player:",
+            t("search_hud"),
             options=all_player_names,
             key="t2_player",
             on_change=sync_from_t2
@@ -459,15 +654,15 @@ with tab2:
     is_drafted = selected_player in drafted_names
     if is_drafted:
         bid_info = draft_df[draft_df['player'] == selected_player].iloc[0]
-        st.warning(f"⚠️ Drafted by **{bid_info['buyer']}** for **{bid_info['price']} cr**")
+        st.warning(t("drafted_by_warn", buyer=bid_info['buyer'], price=bid_info['price']))
     else:
         hud_p, hud_price, hud_btn = st.columns([2, 2, 2])
         with hud_p:
-            hud_buyer = st.selectbox("Bought By:", options=MANAGERS, key="t2_buyer")
+            hud_buyer = st.selectbox(t("bought_by"), options=MANAGERS, key="t2_buyer")
         with hud_price:
             max_bid_possible = my_budget if hud_buyer == MY_NAME else STARTING_BUDGET
             hud_price_val = st.number_input(
-                "Winning Bid (cr):",
+                t("winning_bid"),
                 min_value=1,
                 max_value=max_bid_possible,
                 value=max(1, fair_price) if hud_buyer == MY_NAME else 1,
@@ -476,39 +671,39 @@ with tab2:
             )
         hud_over = hud_buyer == MY_NAME and hud_price_val > walk_away_price
         if hud_over:
-            st.warning(f"⚠️ Exceeds walk-away ({walk_away_price} cr).")
+            st.warning(t("over_walkaway_warn", price=hud_price_val, wa=walk_away_price, fp=fair_price, p=selected_player))
         with hud_btn:
             st.write("")
-            hud_confirm = st.checkbox("Confirm over walk-away", key="t2_confirm") if hud_over else True
-            if st.button("Log This Player", use_container_width=True, type="primary", disabled=not hud_confirm, key="t2_log_btn"):
+            hud_confirm = st.checkbox(t("confirm_over"), key="t2_confirm") if hud_over else True
+            if st.button(t("log_this_player"), use_container_width=True, type="primary", disabled=not hud_confirm, key="t2_log_btn"):
                 log_purchase(selected_player, hud_buyer, hud_price_val)
-                st.success(f"Logged {selected_player} to {hud_buyer} for {hud_price_val} cr")
+                st.success(t("log_success", player=selected_player, buyer=hud_buyer, price=hud_price_val))
                 st.rerun()
 
     st.markdown("---")
     k1, k2, k3, k4, k5 = st.columns(5)
-    k1.metric("Role & Archetype", f"{p_info['Ruolo']} - {p_info['Archetype']}")
-    k2.metric("Weighted Pure Voto", f"{p_info['Media_Voto_Weighted']:.2f}")
-    k3.metric("Weighted Fantamedia", f"{p_info['Fanta_Media_Weighted']:.2f}")
-    k4.metric("Fair Target Bid", f"{fair_price} cr")
-    k5.metric("Walk-Away Max", f"{walk_away_price} cr", delta=f"+{walk_away_price - fair_price}", delta_color="inverse")
+    k1.metric(t("hud_role_arch"), f"{p_info['Ruolo']} - {p_info['Archetype']}")
+    k2.metric(t("hud_mv_w"), f"{p_info['Media_Voto_Weighted']:.2f}")
+    k3.metric(t("hud_fm_w"), f"{p_info['Fanta_Media_Weighted']:.2f}")
+    k4.metric(t("hud_target"), f"{fair_price} cr")
+    k5.metric(t("hud_max"), f"{walk_away_price} cr", delta=f"+{walk_away_price - fair_price}", delta_color="inverse")
 
     r1, r2, r3, r4 = st.columns(4)
-    r1.metric("P(Voto ≥ 6.0)", f"{p_info['P_Voto_ge_6'] * 100:.1f}%")
-    r2.metric("P(Voto ≥ 6.5)", f"{p_info['P_Voto_ge_6_5'] * 100:.1f}%")
-    r3.metric("Total Goals / Assists", f"{int(p_info['Tot_Gol'])} G / {int(p_info['Tot_Ass'])} A")
-    r4.metric("Discipline Malus / Game", f"-{p_info['Malus_per_Game']:.2f} pts")
+    r1.metric(t("hud_p_ge_6"), f"{p_info['P_Voto_ge_6'] * 100:.1f}%")
+    r2.metric(t("hud_p_ge_6_5"), f"{p_info['P_Voto_ge_6_5'] * 100:.1f}%")
+    r3.metric(t("hud_tot_ga"), f"{int(p_info['Tot_Gol'])} G / {int(p_info['Tot_Ass'])} A")
+    r4.metric(t("hud_malus"), f"-{p_info['Malus_per_Game']:.2f} pts")
 
-    st.markdown("##### 📈 Pure Grade vs. Fantavoto Distribution")
+    st.markdown(f"##### {t('hud_chart_title')}")
     fig = go.Figure()
-    fig.add_trace(go.Histogram(x=p_matches['Voto_Puro'], name='Pure Voto (Modifier Floor)', opacity=0.75, xbins=dict(start=3.5, end=9.0, size=0.5)))
-    fig.add_trace(go.Histogram(x=p_matches['Fantavoto'], name='Fantavoto (Bonus Upside)', opacity=0.6, xbins=dict(start=3.5, end=15.0, size=0.5)))
+    fig.add_trace(go.Histogram(x=p_matches['Voto_Puro'], name=t('hud_trace_pure'), opacity=0.75, xbins=dict(start=3.5, end=9.0, size=0.5)))
+    fig.add_trace(go.Histogram(x=p_matches['Fantavoto'], name=t('hud_trace_fanta'), opacity=0.6, xbins=dict(start=3.5, end=15.0, size=0.5)))
     fig.update_layout(barmode='overlay', height=280, margin=dict(l=20, r=20, t=20, b=20), legend=dict(orientation="h", y=1.1))
     st.plotly_chart(fig, use_container_width=True)
 
 # ----------------- TAB 3: LEAGUE & OPPONENT ROSTERS -----------------
 with tab3:
-    st.markdown("### 🏆 League Standing, Liquidity & Opponent Rosters")
+    st.markdown(f"### {t('t3_title')}")
 
     league_summary = []
     for mgr in MANAGERS:
@@ -527,12 +722,12 @@ with tab3:
         a_count = len(mgr_drafted[mgr_drafted['role'] == 'A']) if not mgr_drafted.empty else 0
 
         league_summary.append({
-            "Manager": mgr,
-            "Remaining Budget (cr)": rem_budget,
-            "Spent (cr)": spent,
-            "Slots": f"{filled_slots}/{ROSTER_LIMIT}",
-            "Max Bid (cr)": max_bid,
-            "Avg cr/Slot": avg_cr_slot,
+            t("t3_col_mgr"): mgr,
+            t("t3_col_rem"): rem_budget,
+            t("t3_col_spent"): spent,
+            t("t3_col_slots"): f"{filled_slots}/{ROSTER_LIMIT}",
+            t("t3_col_max_bid"): max_bid,
+            t("t3_col_avg_cr"): avg_cr_slot,
             "P": f"{p_count}/3",
             "D": f"{d_count}/8",
             "C": f"{c_count}/8",
@@ -540,12 +735,12 @@ with tab3:
         })
 
     summary_df = pd.DataFrame(league_summary)
-    st.dataframe(summary_df.sort_values(by="Remaining Budget (cr)", ascending=False), use_container_width=True, hide_index=True)
+    st.dataframe(summary_df.sort_values(by=t("t3_col_rem"), ascending=False), use_container_width=True, hide_index=True)
 
     st.markdown("---")
-    st.markdown("#### 🔍 Opponent Roster Inspector")
+    st.markdown(f"#### {t('t3_inspect')}")
     
-    selected_mgr = st.selectbox("Select Team to Inspect:", options=MANAGERS, index=1 if len(MANAGERS) > 1 else 0)
+    selected_mgr = st.selectbox(t("t3_inspect_select"), options=MANAGERS, index=1 if len(MANAGERS) > 1 else 0)
     
     mgr_squad = draft_df[draft_df['buyer'] == selected_mgr] if not draft_df.empty else pd.DataFrame()
     
@@ -567,28 +762,28 @@ with tab3:
                 hide_index=True
             )
         with col_sq2:
-            st.markdown(f"**{selected_mgr} Spending Breakdown by Role**")
+            st.markdown(t("t3_spending_breakdown", name=selected_mgr))
             role_spend = mgr_squad.groupby('role')['price'].sum().reset_index()
             fig_pie = px.pie(role_spend, values='price', names='role', hole=0.4, color='role',
                              color_discrete_map={'P': '#1f77b4', 'D': '#2ca02c', 'C': '#ff7f0e', 'A': '#d62728'})
             fig_pie.update_layout(height=260, margin=dict(l=10, r=10, t=10, b=10))
             st.plotly_chart(fig_pie, use_container_width=True)
     else:
-        st.info(f"{selected_mgr} has not drafted any players yet.")
+        st.info(t("t3_no_players", name=selected_mgr))
 
 # ----------------- TAB 4: MODIFICATORE SANDBOX -----------------
 with tab4:
-    st.markdown("### 🛡️ Live Defensive Modifier Engine")
+    st.markdown(f"### {t('t4_title')}")
 
     gk_options = profiles_df[profiles_df['Ruolo'] == 'P']['Nome'].sort_values().tolist()
     def_options = profiles_df[profiles_df['Ruolo'] == 'D']['Nome'].sort_values().tolist()
 
     col_gk, col_d1, col_d2, col_d3, col_d4 = st.columns(5)
-    sel_gk = col_gk.selectbox("Portiere (GK)", options=gk_options, index=0)
-    sel_d1 = col_d1.selectbox("Defender 1", options=def_options, index=0)
-    sel_d2 = col_d2.selectbox("Defender 2", options=def_options, index=1 if len(def_options) > 1 else 0)
-    sel_d3 = col_d3.selectbox("Defender 3", options=def_options, index=2 if len(def_options) > 2 else 0)
-    sel_d4 = col_d4.selectbox("Defender 4", options=def_options, index=3 if len(def_options) > 3 else 0)
+    sel_gk = col_gk.selectbox(t("t4_gk"), options=gk_options, index=0)
+    sel_d1 = col_d1.selectbox(t("t4_d1"), options=def_options, index=0)
+    sel_d2 = col_d2.selectbox(t("t4_d2"), options=def_options, index=1 if len(def_options) > 1 else 0)
+    sel_d3 = col_d3.selectbox(t("t4_d3"), options=def_options, index=2 if len(def_options) > 2 else 0)
+    sel_d4 = col_d4.selectbox(t("t4_d4"), options=def_options, index=3 if len(def_options) > 3 else 0)
 
     gk_rows = matches_df[(matches_df['Nome'] == sel_gk) & (matches_df['Voto_Puro'].notna())]
     d1_rows = matches_df[(matches_df['Nome'] == sel_d1) & (matches_df['Voto_Puro'].notna())]
@@ -600,17 +795,17 @@ with tab4:
         sim_res = simulate_modifier(gk_rows, [d1_rows, d2_rows, d3_rows, d4_rows])
 
         m1, m2, m3 = st.columns(3)
-        m1.metric("Expected Modifier Bonus / Matchday", f"+{sim_res['expected_bonus']} pts")
-        m2.metric("Projected Mean Backline Pure Rating", f"{sim_res['mean_rating']} / 10")
-        mode_label = "Joint matchday (correlated)" if sim_res['sampling_mode'] == "joint_matchday" else "Independent (fallback)"
-        m3.metric("Sampling Mode", mode_label)
+        m1.metric(t("t4_exp_bonus"), f"+{sim_res['expected_bonus']} pts")
+        m2.metric(t("t4_proj_rating"), f"{sim_res['mean_rating']} / 10")
+        mode_label = t("t4_joint_mode") if sim_res['sampling_mode'] == "joint_matchday" else t("t4_indep_mode")
+        m3.metric(t("t4_sampling_mode"), mode_label)
 
         prob_df = pd.DataFrame({
-            'Modifier Tier': [f"+{k}" for k in sim_res['probs'].keys()],
-            'Probability (%)': [v * 100 for v in sim_res['probs'].values()]
+            t("t4_chart_tier"): [f"+{k}" for k in sim_res['probs'].keys()],
+            t("t4_chart_prob"): [v * 100 for v in sim_res['probs'].values()]
         })
-        fig_prob = px.bar(prob_df, x='Modifier Tier', y='Probability (%)', text_auto='.1f', title="Modifier Tier Probability Breakdown")
+        fig_prob = px.bar(prob_df, x=t("t4_chart_tier"), y=t("t4_chart_prob"), text_auto='.1f', title=t("t4_chart_title"))
         fig_prob.update_layout(height=280, margin=dict(l=20, r=20, t=30, b=20))
         st.plotly_chart(fig_prob, use_container_width=True)
     else:
-        st.warning("Insufficient appearance records for one or more chosen players.")
+        st.warning(t("t4_insufficient"))
