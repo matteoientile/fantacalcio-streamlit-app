@@ -204,8 +204,8 @@
     "note": "ballottaggio Kaiki"
   },
   "Kaiki": {
-    "tag": "\ud83d\udfe2 Titolare",
-    "note": "ballottaggio Valle"
+    "tag": "\ud83d\udd35 Scommessa / Slot Scommessa",
+    "note": "ballott Valle, Minuti potenziali, Como in Champions"
   },
   "Perrone": {
     "tag": "\ud83d\udfe2 Titolare",
@@ -740,8 +740,8 @@
     "note": ""
   },
   "Romero D.": {
-    "tag": "\ud83d\udfe2 Titolare",
-    "note": "ballottaggio Elphege"
+    "tag": "\ud83d\udd35 Scommessa / Slot Scommessa",
+    "note": "19 presene 11 gol in argentina"
   },
   "Tour\u00e8 E.": {
     "tag": "\ud83d\udd34 Rigorista",
@@ -936,8 +936,8 @@
     "note": ""
   },
   "Adams A.": {
-    "tag": "\ud83d\udfe2 Titolare",
-    "note": ""
+    "tag": "\ud83d\udd35 Scommessa / Slot Scommessa",
+    "note": "TIT, pi\u00f9 pagato della storia, 15 gol"
   },
   "Ellertsson": {
     "tag": "\ud83d\udfe2 Titolare",
@@ -946,5 +946,9 @@
   "Adzic": {
     "tag": "\ud83d\udd35 Scommessa / Slot Scommessa",
     "note": "se gioca, trequartista 4-2-3-1"
+  },
+  "Liberali": {
+    "tag": "\ud83d\udd35 Scommessa / Slot Scommessa",
+    "note": "Minuti potenziali, Como in Champions"
   }
 }
