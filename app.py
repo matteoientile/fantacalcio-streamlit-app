@@ -448,10 +448,10 @@ if alloc_mode == t("alloc_pct"):
         'A': b_fwd / 100.0
     }
 else:
-    b_gk_cr = st.sidebar.number_input(t("role_p_cr"), min_value=3, max_value=STARTING_BUDGET, value=int(0.08 * STARTING_BUDGET), step=5)
-    b_def_cr = st.sidebar.number_input(t("role_d_cr"), min_value=8, max_value=STARTING_BUDGET, value=int(0.18 * STARTING_BUDGET), step=5)
-    b_mid_cr = st.sidebar.number_input(t("role_c_cr"), min_value=8, max_value=STARTING_BUDGET, value=int(0.26 * STARTING_BUDGET), step=5)
-    b_fwd_cr = st.sidebar.number_input(t("role_a_cr"), min_value=6, max_value=STARTING_BUDGET, value=int(0.48 * STARTING_BUDGET), step=5)
+    b_gk_cr = st.sidebar.number_input(t("role_p_cr"), min_value=3, max_value=STARTING_BUDGET, value=int(0.09 * STARTING_BUDGET), step=5)
+    b_def_cr = st.sidebar.number_input(t("role_d_cr"), min_value=8, max_value=STARTING_BUDGET, value=int(0.2 * STARTING_BUDGET), step=5)
+    b_mid_cr = st.sidebar.number_input(t("role_c_cr"), min_value=8, max_value=STARTING_BUDGET, value=int(0.25 * STARTING_BUDGET), step=5)
+    b_fwd_cr = st.sidebar.number_input(t("role_a_cr"), min_value=6, max_value=STARTING_BUDGET, value=int(0.46 * STARTING_BUDGET), step=5)
 
     total_alloc = b_gk_cr + b_def_cr + b_mid_cr + b_fwd_cr
     if total_alloc != STARTING_BUDGET:
