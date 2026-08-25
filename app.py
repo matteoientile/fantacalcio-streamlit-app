@@ -433,10 +433,10 @@ st.sidebar.markdown(f"### {t('alloc_title')}")
 alloc_mode = st.sidebar.radio(t("alloc_mode"), [t("alloc_pct"), t("alloc_abs")], horizontal=True)
 
 if alloc_mode == t("alloc_pct"):
-    b_gk = st.sidebar.slider(t("role_p"), 3, 20, 9, step=1)
-    b_def = st.sidebar.slider(t("role_d"), 5, 35, 20, step=1)
-    b_mid = st.sidebar.slider(t("role_c"), 10, 45, 25, step=1)
-    b_fwd = st.sidebar.slider(t("role_a"), 25, 75, 46, step=1)
+    b_gk = st.sidebar.slider(t("role_p"), 3, 20, 9.5, step=1)
+    b_def = st.sidebar.slider(t("role_d"), 5, 35, 16.5, step=1)
+    b_mid = st.sidebar.slider(t("role_c"), 10, 45, 24, step=1)
+    b_fwd = st.sidebar.slider(t("role_a"), 25, 75, 50, step=1)
 
     total_alloc = b_gk + b_def + b_mid + b_fwd
     if total_alloc != 100:
@@ -449,10 +449,10 @@ if alloc_mode == t("alloc_pct"):
         'A': b_fwd / 100.0
     }
 else:
-    b_gk_cr = st.sidebar.number_input(t("role_p_cr"), min_value=3, max_value=STARTING_BUDGET, value=int(0.09 * STARTING_BUDGET), step=5)
-    b_def_cr = st.sidebar.number_input(t("role_d_cr"), min_value=8, max_value=STARTING_BUDGET, value=int(0.2 * STARTING_BUDGET), step=5)
-    b_mid_cr = st.sidebar.number_input(t("role_c_cr"), min_value=8, max_value=STARTING_BUDGET, value=int(0.25 * STARTING_BUDGET), step=5)
-    b_fwd_cr = st.sidebar.number_input(t("role_a_cr"), min_value=6, max_value=STARTING_BUDGET, value=int(0.46 * STARTING_BUDGET), step=5)
+    b_gk_cr = st.sidebar.number_input(t("role_p_cr"), min_value=3, max_value=STARTING_BUDGET, value=int(0.095 * STARTING_BUDGET), step=5)
+    b_def_cr = st.sidebar.number_input(t("role_d_cr"), min_value=8, max_value=STARTING_BUDGET, value=int(0.165 * STARTING_BUDGET), step=5)
+    b_mid_cr = st.sidebar.number_input(t("role_c_cr"), min_value=8, max_value=STARTING_BUDGET, value=int(0.24 * STARTING_BUDGET), step=5)
+    b_fwd_cr = st.sidebar.number_input(t("role_a_cr"), min_value=6, max_value=STARTING_BUDGET, value=int(0.5 * STARTING_BUDGET), step=5)
 
     total_alloc = b_gk_cr + b_def_cr + b_mid_cr + b_fwd_cr
     if total_alloc != STARTING_BUDGET:
@@ -965,4 +965,4 @@ with tab5:
             column_config=target_col_config
         )
     else:
-        st.info(t("t5_no_targets"))
+        st.info(t("t5_no_targets")) 
