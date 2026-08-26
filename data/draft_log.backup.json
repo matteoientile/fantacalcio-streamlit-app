@@ -1,1 +1,1790 @@
-[]
+[
+  {
+    "player": "Falcone",
+    "role": "P",
+    "buyer": "Io",
+    "price": 14
+  },
+  {
+    "player": "Caprile",
+    "role": "P",
+    "buyer": "Io",
+    "price": 16
+  },
+  {
+    "player": "Stankovic F.",
+    "role": "P",
+    "buyer": "Io",
+    "price": 6
+  },
+  {
+    "player": "Akanji",
+    "role": "D",
+    "buyer": "Io",
+    "price": 40
+  },
+  {
+    "player": "Mancini",
+    "role": "D",
+    "buyer": "Io",
+    "price": 34
+  },
+  {
+    "player": "Koulierakis",
+    "role": "D",
+    "buyer": "Io",
+    "price": 7
+  },
+  {
+    "player": "Kaiki",
+    "role": "D",
+    "buyer": "Io",
+    "price": 11
+  },
+  {
+    "player": "Ahanor",
+    "role": "D",
+    "buyer": "Io",
+    "price": 1
+  },
+  {
+    "player": "Mitaj",
+    "role": "D",
+    "buyer": "Io",
+    "price": 1
+  },
+  {
+    "player": "Haps",
+    "role": "D",
+    "buyer": "Io",
+    "price": 1
+  },
+  {
+    "player": "McKennie",
+    "role": "C",
+    "buyer": "Io",
+    "price": 43
+  },
+  {
+    "player": "Taylor K.",
+    "role": "C",
+    "buyer": "Io",
+    "price": 30
+  },
+  {
+    "player": "Samardzic",
+    "role": "C",
+    "buyer": "Io",
+    "price": 30
+  },
+  {
+    "player": "Bernab\u00e8",
+    "role": "C",
+    "buyer": "Io",
+    "price": 22
+  },
+  {
+    "player": "Sucic P.",
+    "role": "C",
+    "buyer": "Io",
+    "price": 2
+  },
+  {
+    "player": "Liberali",
+    "role": "C",
+    "buyer": "Io",
+    "price": 8
+  },
+  {
+    "player": "Odgaard",
+    "role": "C",
+    "buyer": "Io",
+    "price": 6
+  },
+  {
+    "player": "Busio",
+    "role": "C",
+    "buyer": "Io",
+    "price": 12
+  },
+  {
+    "player": "Kean",
+    "role": "A",
+    "buyer": "Io",
+    "price": 100
+  },
+  {
+    "player": "Dybala",
+    "role": "A",
+    "buyer": "Io",
+    "price": 55
+  },
+  {
+    "player": "Santos A.",
+    "role": "A",
+    "buyer": "Io",
+    "price": 36
+  },
+  {
+    "player": "Ghedjemis",
+    "role": "A",
+    "buyer": "Io",
+    "price": 9
+  },
+  {
+    "player": "Borrelli",
+    "role": "A",
+    "buyer": "Io",
+    "price": 1
+  },
+  {
+    "player": "Kuhn",
+    "role": "A",
+    "buyer": "Io",
+    "price": 1
+  },
+  {
+    "player": "Butez",
+    "role": "P",
+    "buyer": "Ciccio",
+    "price": 41
+  },
+  {
+    "player": "Tornqvist",
+    "role": "P",
+    "buyer": "Ciccio",
+    "price": 1
+  },
+  {
+    "player": "Vigorito",
+    "role": "P",
+    "buyer": "Ciccio",
+    "price": 1
+  },
+  {
+    "player": "Dimarco",
+    "role": "D",
+    "buyer": "Ciccio",
+    "price": 99
+  },
+  {
+    "player": "Norton-Cuffy",
+    "role": "D",
+    "buyer": "Ciccio",
+    "price": 8
+  },
+  {
+    "player": "Romagnoli",
+    "role": "D",
+    "buyer": "Ciccio",
+    "price": 1
+  },
+  {
+    "player": "Tiago Gabriel",
+    "role": "D",
+    "buyer": "Ciccio",
+    "price": 7
+  },
+  {
+    "player": "Bernasconi",
+    "role": "D",
+    "buyer": "Ciccio",
+    "price": 13
+  },
+  {
+    "player": "Comert",
+    "role": "D",
+    "buyer": "Ciccio",
+    "price": 2
+  },
+  {
+    "player": "Correia T.",
+    "role": "D",
+    "buyer": "Ciccio",
+    "price": 1
+  },
+  {
+    "player": "Atta",
+    "role": "C",
+    "buyer": "Ciccio",
+    "price": 41
+  },
+  {
+    "player": "Politano",
+    "role": "C",
+    "buyer": "Ciccio",
+    "price": 31
+  },
+  {
+    "player": "Cristante",
+    "role": "C",
+    "buyer": "Ciccio",
+    "price": 3
+  },
+  {
+    "player": "Bernardeschi",
+    "role": "C",
+    "buyer": "Ciccio",
+    "price": 13
+  },
+  {
+    "player": "Isaksen",
+    "role": "C",
+    "buyer": "Ciccio",
+    "price": 21
+  },
+  {
+    "player": "Basic",
+    "role": "C",
+    "buyer": "Ciccio",
+    "price": 2
+  },
+  {
+    "player": "Adzic",
+    "role": "C",
+    "buyer": "Ciccio",
+    "price": 2
+  },
+  {
+    "player": "Addai",
+    "role": "C",
+    "buyer": "Ciccio",
+    "price": 1
+  },
+  {
+    "player": "Douvikas",
+    "role": "A",
+    "buyer": "Ciccio",
+    "price": 91
+  },
+  {
+    "player": "Davis K.",
+    "role": "A",
+    "buyer": "Ciccio",
+    "price": 77
+  },
+  {
+    "player": "De Ketelaere",
+    "role": "A",
+    "buyer": "Ciccio",
+    "price": 40
+  },
+  {
+    "player": "Osmajic",
+    "role": "A",
+    "buyer": "Ciccio",
+    "price": 1
+  },
+  {
+    "player": "Vaz",
+    "role": "A",
+    "buyer": "Ciccio",
+    "price": 1
+  },
+  {
+    "player": "Azon",
+    "role": "A",
+    "buyer": "Ciccio",
+    "price": 1
+  },
+  {
+    "player": "Troilo",
+    "role": "D",
+    "buyer": "Ciccio",
+    "price": 4
+  },
+  {
+    "player": "Okoye",
+    "role": "P",
+    "buyer": "Meco",
+    "price": 27
+  },
+  {
+    "player": "Muric",
+    "role": "P",
+    "buyer": "Meco",
+    "price": 12
+  },
+  {
+    "player": "Turati",
+    "role": "P",
+    "buyer": "Meco",
+    "price": 1
+  },
+  {
+    "player": "Rrahmani",
+    "role": "D",
+    "buyer": "Meco",
+    "price": 31
+  },
+  {
+    "player": "Kalulu",
+    "role": "D",
+    "buyer": "Meco",
+    "price": 42
+  },
+  {
+    "player": "Bastoni",
+    "role": "D",
+    "buyer": "Meco",
+    "price": 46
+  },
+  {
+    "player": "Sutalo J.",
+    "role": "D",
+    "buyer": "Meco",
+    "price": 2
+  },
+  {
+    "player": "Mangas",
+    "role": "D",
+    "buyer": "Meco",
+    "price": 3
+  },
+  {
+    "player": "Celik",
+    "role": "D",
+    "buyer": "Meco",
+    "price": 7
+  },
+  {
+    "player": "Veiga D.",
+    "role": "D",
+    "buyer": "Meco",
+    "price": 1
+  },
+  {
+    "player": "Oyono A.",
+    "role": "D",
+    "buyer": "Meco",
+    "price": 1
+  },
+  {
+    "player": "Zaccagni",
+    "role": "C",
+    "buyer": "Meco",
+    "price": 50
+  },
+  {
+    "player": "Vergara",
+    "role": "C",
+    "buyer": "Meco",
+    "price": 15
+  },
+  {
+    "player": "Perrone",
+    "role": "C",
+    "buyer": "Meco",
+    "price": 30
+  },
+  {
+    "player": "Cambiaghi",
+    "role": "C",
+    "buyer": "Meco",
+    "price": 5
+  },
+  {
+    "player": "Fitz-Jim",
+    "role": "C",
+    "buyer": "Meco",
+    "price": 1
+  },
+  {
+    "player": "Winks",
+    "role": "C",
+    "buyer": "Meco",
+    "price": 1
+  },
+  {
+    "player": "Matic",
+    "role": "C",
+    "buyer": "Meco",
+    "price": 1
+  },
+  {
+    "player": "Kolo Muani",
+    "role": "A",
+    "buyer": "Meco",
+    "price": 100
+  },
+  {
+    "player": "Dovbyk",
+    "role": "A",
+    "buyer": "Meco",
+    "price": 35
+  },
+  {
+    "player": "Boga",
+    "role": "A",
+    "buyer": "Meco",
+    "price": 5
+  },
+  {
+    "player": "Neres",
+    "role": "A",
+    "buyer": "Meco",
+    "price": 28
+  },
+  {
+    "player": "N'Dri",
+    "role": "A",
+    "buyer": "Meco",
+    "price": 2
+  },
+  {
+    "player": "Varela G.",
+    "role": "A",
+    "buyer": "Meco",
+    "price": 17
+  },
+  {
+    "player": "Zambo Anguissa",
+    "role": "C",
+    "buyer": "Meco",
+    "price": 16
+  },
+  {
+    "player": "De Gea",
+    "role": "P",
+    "buyer": "Vici",
+    "price": 38
+  },
+  {
+    "player": "Christensen O.",
+    "role": "P",
+    "buyer": "Vici",
+    "price": 1
+  },
+  {
+    "player": "Lezzerini",
+    "role": "P",
+    "buyer": "Vici",
+    "price": 1
+  },
+  {
+    "player": "Wesley",
+    "role": "D",
+    "buyer": "Vici",
+    "price": 60
+  },
+  {
+    "player": "Spinazzola",
+    "role": "D",
+    "buyer": "Vici",
+    "price": 33
+  },
+  {
+    "player": "Valeri",
+    "role": "D",
+    "buyer": "Vici",
+    "price": 16
+  },
+  {
+    "player": "Bartesaghi",
+    "role": "D",
+    "buyer": "Vici",
+    "price": 13
+  },
+  {
+    "player": "Zortea",
+    "role": "D",
+    "buyer": "Vici",
+    "price": 5
+  },
+  {
+    "player": "Obert",
+    "role": "D",
+    "buyer": "Vici",
+    "price": 7
+  },
+  {
+    "player": "Comuzzo",
+    "role": "D",
+    "buyer": "Vici",
+    "price": 1
+  },
+  {
+    "player": "Kossounou",
+    "role": "D",
+    "buyer": "Vici",
+    "price": 1
+  },
+  {
+    "player": "Barella",
+    "role": "C",
+    "buyer": "Vici",
+    "price": 36
+  },
+  {
+    "player": "Conceicao",
+    "role": "C",
+    "buyer": "Vici",
+    "price": 44
+  },
+  {
+    "player": "Diouf",
+    "role": "C",
+    "buyer": "Vici",
+    "price": 15
+  },
+  {
+    "player": "Thuram K.",
+    "role": "C",
+    "buyer": "Vici",
+    "price": 21
+  },
+  {
+    "player": "Baldanzi",
+    "role": "C",
+    "buyer": "Vici",
+    "price": 17
+  },
+  {
+    "player": "Pellegrini Lo.",
+    "role": "C",
+    "buyer": "Vici",
+    "price": 1
+  },
+  {
+    "player": "Chukwueze",
+    "role": "C",
+    "buyer": "Vici",
+    "price": 20
+  },
+  {
+    "player": "Njie",
+    "role": "C",
+    "buyer": "Vici",
+    "price": 7
+  },
+  {
+    "player": "Colombo",
+    "role": "A",
+    "buyer": "Vici",
+    "price": 34
+  },
+  {
+    "player": "Adams A.",
+    "role": "A",
+    "buyer": "Vici",
+    "price": 32
+  },
+  {
+    "player": "Bowie",
+    "role": "A",
+    "buyer": "Vici",
+    "price": 30
+  },
+  {
+    "player": "Esposito Se.",
+    "role": "A",
+    "buyer": "Vici",
+    "price": 30
+  },
+  {
+    "player": "Romero D.",
+    "role": "A",
+    "buyer": "Vici",
+    "price": 31
+  },
+  {
+    "player": "Cutrone",
+    "role": "A",
+    "buyer": "Vici",
+    "price": 6
+  },
+  {
+    "player": "Martinez Jo.",
+    "role": "P",
+    "buyer": "Samuele",
+    "price": 52
+  },
+  {
+    "player": "Provedel",
+    "role": "P",
+    "buyer": "Samuele",
+    "price": 11
+  },
+  {
+    "player": "Di Gennaro",
+    "role": "P",
+    "buyer": "Samuele",
+    "price": 1
+  },
+  {
+    "player": "Pavlovic",
+    "role": "D",
+    "buyer": "Samuele",
+    "price": 31
+  },
+  {
+    "player": "Ostigard",
+    "role": "D",
+    "buyer": "Samuele",
+    "price": 17
+  },
+  {
+    "player": "Di Lorenzo",
+    "role": "D",
+    "buyer": "Samuele",
+    "price": 31
+  },
+  {
+    "player": "Delprato",
+    "role": "D",
+    "buyer": "Samuele",
+    "price": 4
+  },
+  {
+    "player": "Rodriguez Ju.",
+    "role": "D",
+    "buyer": "Samuele",
+    "price": 1
+  },
+  {
+    "player": "Kempf",
+    "role": "D",
+    "buyer": "Samuele",
+    "price": 1
+  },
+  {
+    "player": "Kouadio",
+    "role": "D",
+    "buyer": "Samuele",
+    "price": 1
+  },
+  {
+    "player": "Vitik",
+    "role": "D",
+    "buyer": "Samuele",
+    "price": 1
+  },
+  {
+    "player": "Rabiot",
+    "role": "C",
+    "buyer": "Samuele",
+    "price": 66
+  },
+  {
+    "player": "Da Cunha",
+    "role": "C",
+    "buyer": "Samuele",
+    "price": 51
+  },
+  {
+    "player": "Moreira",
+    "role": "C",
+    "buyer": "Samuele",
+    "price": 25
+  },
+  {
+    "player": "Locatelli",
+    "role": "C",
+    "buyer": "Samuele",
+    "price": 1
+  },
+  {
+    "player": "Fagioli",
+    "role": "C",
+    "buyer": "Samuele",
+    "price": 2
+  },
+  {
+    "player": "Lobotka",
+    "role": "C",
+    "buyer": "Samuele",
+    "price": 6
+  },
+  {
+    "player": "Keita M.",
+    "role": "C",
+    "buyer": "Samuele",
+    "price": 1
+  },
+  {
+    "player": "Zerbin",
+    "role": "C",
+    "buyer": "Samuele",
+    "price": 1
+  },
+  {
+    "player": "Yildiz",
+    "role": "A",
+    "buyer": "Samuele",
+    "price": 57
+  },
+  {
+    "player": "Berardi",
+    "role": "A",
+    "buyer": "Samuele",
+    "price": 49
+  },
+  {
+    "player": "Leao",
+    "role": "A",
+    "buyer": "Samuele",
+    "price": 1
+  },
+  {
+    "player": "David",
+    "role": "A",
+    "buyer": "Samuele",
+    "price": 5
+  },
+  {
+    "player": "Dia",
+    "role": "A",
+    "buyer": "Samuele",
+    "price": 1
+  },
+  {
+    "player": "Ramos G.",
+    "role": "A",
+    "buyer": "Samuele",
+    "price": 58
+  },
+  {
+    "player": "Vicario",
+    "role": "P",
+    "buyer": "StratiT",
+    "price": 50
+  },
+  {
+    "player": "Milinkovic-Savic V.",
+    "role": "P",
+    "buyer": "StratiT",
+    "price": 12
+  },
+  {
+    "player": "Paleari",
+    "role": "P",
+    "buyer": "StratiT",
+    "price": 1
+  },
+  {
+    "player": "Solet",
+    "role": "D",
+    "buyer": "StratiT",
+    "price": 38
+  },
+  {
+    "player": "Spence",
+    "role": "D",
+    "buyer": "StratiT",
+    "price": 43
+  },
+  {
+    "player": "Idzes",
+    "role": "D",
+    "buyer": "StratiT",
+    "price": 3
+  },
+  {
+    "player": "Heggem",
+    "role": "D",
+    "buyer": "StratiT",
+    "price": 4
+  },
+  {
+    "player": "Bella-Kotchap",
+    "role": "D",
+    "buyer": "StratiT",
+    "price": 2
+  },
+  {
+    "player": "Provstgaard",
+    "role": "D",
+    "buyer": "StratiT",
+    "price": 2
+  },
+  {
+    "player": "Monterisi",
+    "role": "D",
+    "buyer": "StratiT",
+    "price": 3
+  },
+  {
+    "player": "Gallo",
+    "role": "D",
+    "buyer": "StratiT",
+    "price": 5
+  },
+  {
+    "player": "Calhanoglu",
+    "role": "C",
+    "buyer": "StratiT",
+    "price": 80
+  },
+  {
+    "player": "Ederson D.S.",
+    "role": "C",
+    "buyer": "StratiT",
+    "price": 28
+  },
+  {
+    "player": "Ekkelenkamp",
+    "role": "C",
+    "buyer": "StratiT",
+    "price": 28
+  },
+  {
+    "player": "Thorstvedt",
+    "role": "C",
+    "buyer": "StratiT",
+    "price": 8
+  },
+  {
+    "player": "Colpani",
+    "role": "C",
+    "buyer": "StratiT",
+    "price": 6
+  },
+  {
+    "player": "Pierotti",
+    "role": "C",
+    "buyer": "StratiT",
+    "price": 2
+  },
+  {
+    "player": "Loftus-Cheek",
+    "role": "C",
+    "buyer": "StratiT",
+    "price": 1
+  },
+  {
+    "player": "Scamacca",
+    "role": "A",
+    "buyer": "StratiT",
+    "price": 73
+  },
+  {
+    "player": "Laurient\u00e8",
+    "role": "A",
+    "buyer": "StratiT",
+    "price": 36
+  },
+  {
+    "player": "Pellegrino M.",
+    "role": "A",
+    "buyer": "StratiT",
+    "price": 40
+  },
+  {
+    "player": "Adams C.",
+    "role": "A",
+    "buyer": "StratiT",
+    "price": 20
+  },
+  {
+    "player": "Ekhator",
+    "role": "A",
+    "buyer": "StratiT",
+    "price": 1
+  },
+  {
+    "player": "Lucca",
+    "role": "A",
+    "buyer": "StratiT",
+    "price": 13
+  },
+  {
+    "player": "Meret",
+    "role": "P",
+    "buyer": "Gabriele",
+    "price": 49
+  },
+  {
+    "player": "Mascardi",
+    "role": "P",
+    "buyer": "Gabriele",
+    "price": 7
+  },
+  {
+    "player": "Montip\u00f2",
+    "role": "P",
+    "buyer": "Gabriele",
+    "price": 1
+  },
+  {
+    "player": "Vasquez",
+    "role": "D",
+    "buyer": "Gabriele",
+    "price": 9
+  },
+  {
+    "player": "Couto",
+    "role": "D",
+    "buyer": "Gabriele",
+    "price": 14
+  },
+  {
+    "player": "Dod\u00f2",
+    "role": "D",
+    "buyer": "Gabriele",
+    "price": 1
+  },
+  {
+    "player": "Valdepenas",
+    "role": "D",
+    "buyer": "Gabriele",
+    "price": 6
+  },
+  {
+    "player": "Obrador",
+    "role": "D",
+    "buyer": "Gabriele",
+    "price": 4
+  },
+  {
+    "player": "Pedersen",
+    "role": "D",
+    "buyer": "Gabriele",
+    "price": 7
+  },
+  {
+    "player": "Kamara H.",
+    "role": "D",
+    "buyer": "Gabriele",
+    "price": 8
+  },
+  {
+    "player": "Smolcic I.",
+    "role": "D",
+    "buyer": "Gabriele",
+    "price": 1
+  },
+  {
+    "player": "Baturina",
+    "role": "C",
+    "buyer": "Gabriele",
+    "price": 57
+  },
+  {
+    "player": "Mora",
+    "role": "C",
+    "buyer": "Gabriele",
+    "price": 51
+  },
+  {
+    "player": "Mastantuono",
+    "role": "C",
+    "buyer": "Gabriele",
+    "price": 53
+  },
+  {
+    "player": "Zielinski",
+    "role": "C",
+    "buyer": "Gabriele",
+    "price": 40
+  },
+  {
+    "player": "Cacciamani",
+    "role": "C",
+    "buyer": "Gabriele",
+    "price": 1
+  },
+  {
+    "player": "Zhegrova",
+    "role": "C",
+    "buyer": "Gabriele",
+    "price": 1
+  },
+  {
+    "player": "Bakola",
+    "role": "C",
+    "buyer": "Gabriele",
+    "price": 1
+  },
+  {
+    "player": "Meichtry",
+    "role": "C",
+    "buyer": "Gabriele",
+    "price": 1
+  },
+  {
+    "player": "Hojlund",
+    "role": "A",
+    "buyer": "Gabriele",
+    "price": 135
+  },
+  {
+    "player": "Diao",
+    "role": "A",
+    "buyer": "Gabriele",
+    "price": 20
+  },
+  {
+    "player": "Maldini",
+    "role": "A",
+    "buyer": "Gabriele",
+    "price": 19
+  },
+  {
+    "player": "Kvernadze",
+    "role": "A",
+    "buyer": "Gabriele",
+    "price": 4
+  },
+  {
+    "player": "Lontani",
+    "role": "A",
+    "buyer": "Gabriele",
+    "price": 3
+  },
+  {
+    "player": "Frigan",
+    "role": "A",
+    "buyer": "Gabriele",
+    "price": 1
+  },
+  {
+    "player": "Svilar",
+    "role": "P",
+    "buyer": "Lorenzo",
+    "price": 50
+  },
+  {
+    "player": "Daffara",
+    "role": "P",
+    "buyer": "Lorenzo",
+    "price": 2
+  },
+  {
+    "player": "Corvi",
+    "role": "P",
+    "buyer": "Lorenzo",
+    "price": 8
+  },
+  {
+    "player": "Miranda J.",
+    "role": "D",
+    "buyer": "Lorenzo",
+    "price": 16
+  },
+  {
+    "player": "Kristensen T.",
+    "role": "D",
+    "buyer": "Lorenzo",
+    "price": 11
+  },
+  {
+    "player": "Lucum\u00ec",
+    "role": "D",
+    "buyer": "Lorenzo",
+    "price": 10
+  },
+  {
+    "player": "Doekhi",
+    "role": "D",
+    "buyer": "Lorenzo",
+    "price": 3
+  },
+  {
+    "player": "Z\u00e8 Pedro",
+    "role": "D",
+    "buyer": "Lorenzo",
+    "price": 1
+  },
+  {
+    "player": "Coco",
+    "role": "D",
+    "buyer": "Lorenzo",
+    "price": 4
+  },
+  {
+    "player": "Schingtienne",
+    "role": "D",
+    "buyer": "Lorenzo",
+    "price": 1
+  },
+  {
+    "player": "Valenti",
+    "role": "D",
+    "buyer": "Lorenzo",
+    "price": 1
+  },
+  {
+    "player": "Paz N.",
+    "role": "C",
+    "buyer": "Lorenzo",
+    "price": 100
+  },
+  {
+    "player": "Kon\u00e8 M.",
+    "role": "C",
+    "buyer": "Lorenzo",
+    "price": 21
+  },
+  {
+    "player": "Casadei",
+    "role": "C",
+    "buyer": "Lorenzo",
+    "price": 17
+  },
+  {
+    "player": "Gaetano",
+    "role": "C",
+    "buyer": "Lorenzo",
+    "price": 12
+  },
+  {
+    "player": "Schmid",
+    "role": "C",
+    "buyer": "Lorenzo",
+    "price": 5
+  },
+  {
+    "player": "Fazzini",
+    "role": "C",
+    "buyer": "Lorenzo",
+    "price": 8
+  },
+  {
+    "player": "Unai Gomez",
+    "role": "C",
+    "buyer": "Lorenzo",
+    "price": 1
+  },
+  {
+    "player": "Akinsanmiro",
+    "role": "C",
+    "buyer": "Lorenzo",
+    "price": 1
+  },
+  {
+    "player": "Martinez L.",
+    "role": "A",
+    "buyer": "Lorenzo",
+    "price": 161
+  },
+  {
+    "player": "Kevin Carlos",
+    "role": "A",
+    "buyer": "Lorenzo",
+    "price": 10
+  },
+  {
+    "player": "Geubbels",
+    "role": "A",
+    "buyer": "Lorenzo",
+    "price": 13
+  },
+  {
+    "player": "Camarda",
+    "role": "A",
+    "buyer": "Lorenzo",
+    "price": 6
+  },
+  {
+    "player": "Rrahmani Al.",
+    "role": "A",
+    "buyer": "Lorenzo",
+    "price": 1
+  },
+  {
+    "player": "Vitinha O.",
+    "role": "A",
+    "buyer": "Lorenzo",
+    "price": 14
+  },
+  {
+    "player": "Maignan",
+    "role": "P",
+    "buyer": "Mico G",
+    "price": 57
+  },
+  {
+    "player": "Thiam",
+    "role": "P",
+    "buyer": "Mico G",
+    "price": 5
+  },
+  {
+    "player": "Torriani",
+    "role": "P",
+    "buyer": "Mico G",
+    "price": 1
+  },
+  {
+    "player": "Molina N.",
+    "role": "D",
+    "buyer": "Mico G",
+    "price": 43
+  },
+  {
+    "player": "Bremer",
+    "role": "D",
+    "buyer": "Mico G",
+    "price": 42
+  },
+  {
+    "player": "Viery",
+    "role": "D",
+    "buyer": "Mico G",
+    "price": 5
+  },
+  {
+    "player": "Bellanova",
+    "role": "D",
+    "buyer": "Mico G",
+    "price": 8
+  },
+  {
+    "player": "Pedraza",
+    "role": "D",
+    "buyer": "Mico G",
+    "price": 1
+  },
+  {
+    "player": "Holm",
+    "role": "D",
+    "buyer": "Mico G",
+    "price": 1
+  },
+  {
+    "player": "Fortini",
+    "role": "D",
+    "buyer": "Mico G",
+    "price": 1
+  },
+  {
+    "player": "Cinquegrano",
+    "role": "D",
+    "buyer": "Mico G",
+    "price": 1
+  },
+  {
+    "player": "Pulisic",
+    "role": "C",
+    "buyer": "Mico G",
+    "price": 70
+  },
+  {
+    "player": "Zaniolo",
+    "role": "C",
+    "buyer": "Mico G",
+    "price": 29
+  },
+  {
+    "player": "Vlasic",
+    "role": "C",
+    "buyer": "Mico G",
+    "price": 38
+  },
+  {
+    "player": "Cancellieri",
+    "role": "C",
+    "buyer": "Mico G",
+    "price": 2
+  },
+  {
+    "player": "Elmas",
+    "role": "C",
+    "buyer": "Mico G",
+    "price": 5
+  },
+  {
+    "player": "Karlstrom",
+    "role": "C",
+    "buyer": "Mico G",
+    "price": 1
+  },
+  {
+    "player": "Pisilli",
+    "role": "C",
+    "buyer": "Mico G",
+    "price": 1
+  },
+  {
+    "player": "Gandelman",
+    "role": "C",
+    "buyer": "Mico G",
+    "price": 1
+  },
+  {
+    "player": "Thuram",
+    "role": "A",
+    "buyer": "Mico G",
+    "price": 111
+  },
+  {
+    "player": "Castro S.",
+    "role": "A",
+    "buyer": "Mico G",
+    "price": 35
+  },
+  {
+    "player": "Tour\u00e8 E.",
+    "role": "A",
+    "buyer": "Mico G",
+    "price": 21
+  },
+  {
+    "player": "Zapata D.",
+    "role": "A",
+    "buyer": "Mico G",
+    "price": 2
+  },
+  {
+    "player": "Elphege",
+    "role": "A",
+    "buyer": "Mico G",
+    "price": 1
+  },
+  {
+    "player": "Stulic",
+    "role": "A",
+    "buyer": "Mico G",
+    "price": 1
+  },
+  {
+    "player": "Bijlow",
+    "role": "P",
+    "buyer": "Max",
+    "price": 15
+  },
+  {
+    "player": "Palmisani",
+    "role": "P",
+    "buyer": "Max",
+    "price": 4
+  },
+  {
+    "player": "Desplanches",
+    "role": "P",
+    "buyer": "Max",
+    "price": 1
+  },
+  {
+    "player": "Bisseck",
+    "role": "D",
+    "buyer": "Max",
+    "price": 31
+  },
+  {
+    "player": "Ramon",
+    "role": "D",
+    "buyer": "Max",
+    "price": 25
+  },
+  {
+    "player": "Stones",
+    "role": "D",
+    "buyer": "Max",
+    "price": 24
+  },
+  {
+    "player": "Scalvini",
+    "role": "D",
+    "buyer": "Max",
+    "price": 8
+  },
+  {
+    "player": "Jimenez A.",
+    "role": "D",
+    "buyer": "Max",
+    "price": 17
+  },
+  {
+    "player": "Helland",
+    "role": "D",
+    "buyer": "Max",
+    "price": 1
+  },
+  {
+    "player": "Birindelli",
+    "role": "D",
+    "buyer": "Max",
+    "price": 1
+  },
+  {
+    "player": "De Winter",
+    "role": "D",
+    "buyer": "Max",
+    "price": 1
+  },
+  {
+    "player": "McTominay",
+    "role": "C",
+    "buyer": "Max",
+    "price": 100
+  },
+  {
+    "player": "Alajbegovic",
+    "role": "C",
+    "buyer": "Max",
+    "price": 51
+  },
+  {
+    "player": "Modric",
+    "role": "C",
+    "buyer": "Max",
+    "price": 21
+  },
+  {
+    "player": "Rodriguez Je.",
+    "role": "C",
+    "buyer": "Max",
+    "price": 28
+  },
+  {
+    "player": "Volpato",
+    "role": "C",
+    "buyer": "Max",
+    "price": 5
+  },
+  {
+    "player": "Frendrup",
+    "role": "C",
+    "buyer": "Max",
+    "price": 1
+  },
+  {
+    "player": "Zalewski",
+    "role": "C",
+    "buyer": "Max",
+    "price": 1
+  },
+  {
+    "player": "Pessina",
+    "role": "C",
+    "buyer": "Max",
+    "price": 2
+  },
+  {
+    "player": "Raspadori",
+    "role": "A",
+    "buyer": "Max",
+    "price": 43
+  },
+  {
+    "player": "Pinamonti",
+    "role": "A",
+    "buyer": "Max",
+    "price": 36
+  },
+  {
+    "player": "Piccoli",
+    "role": "A",
+    "buyer": "Max",
+    "price": 14
+  },
+  {
+    "player": "Bonny",
+    "role": "A",
+    "buyer": "Max",
+    "price": 12
+  },
+  {
+    "player": "Mendy P.",
+    "role": "A",
+    "buyer": "Max",
+    "price": 19
+  },
+  {
+    "player": "Giovane",
+    "role": "A",
+    "buyer": "Max",
+    "price": 1
+  },
+  {
+    "player": "Carnesecchi",
+    "role": "P",
+    "buyer": "PeppeP",
+    "price": 54
+  },
+  {
+    "player": "Vismara",
+    "role": "P",
+    "buyer": "PeppeP",
+    "price": 1
+  },
+  {
+    "player": "Sportiello",
+    "role": "P",
+    "buyer": "PeppeP",
+    "price": 1
+  },
+  {
+    "player": "N'Dicka",
+    "role": "D",
+    "buyer": "PeppeP",
+    "price": 28
+  },
+  {
+    "player": "Chalobah T.",
+    "role": "D",
+    "buyer": "PeppeP",
+    "price": 20
+  },
+  {
+    "player": "Dragusin",
+    "role": "D",
+    "buyer": "PeppeP",
+    "price": 10
+  },
+  {
+    "player": "Carlos Augusto",
+    "role": "D",
+    "buyer": "PeppeP",
+    "price": 8
+  },
+  {
+    "player": "Cambiaso",
+    "role": "D",
+    "buyer": "PeppeP",
+    "price": 30
+  },
+  {
+    "player": "Gabbia",
+    "role": "D",
+    "buyer": "PeppeP",
+    "price": 1
+  },
+  {
+    "player": "Mina",
+    "role": "D",
+    "buyer": "PeppeP",
+    "price": 8
+  },
+  {
+    "player": "Favasuli",
+    "role": "D",
+    "buyer": "PeppeP",
+    "price": 3
+  },
+  {
+    "player": "Orsolini",
+    "role": "C",
+    "buyer": "PeppeP",
+    "price": 80
+  },
+  {
+    "player": "Jones C.",
+    "role": "C",
+    "buyer": "PeppeP",
+    "price": 31
+  },
+  {
+    "player": "Rowe",
+    "role": "C",
+    "buyer": "PeppeP",
+    "price": 41
+  },
+  {
+    "player": "Saelemaekers",
+    "role": "C",
+    "buyer": "PeppeP",
+    "price": 13
+  },
+  {
+    "player": "Cal\u00f2",
+    "role": "C",
+    "buyer": "PeppeP",
+    "price": 11
+  },
+  {
+    "player": "Pasalic",
+    "role": "C",
+    "buyer": "PeppeP",
+    "price": 11
+  },
+  {
+    "player": "Mandragora",
+    "role": "C",
+    "buyer": "PeppeP",
+    "price": 1
+  },
+  {
+    "player": "Adopo",
+    "role": "C",
+    "buyer": "PeppeP",
+    "price": 1
+  },
+  {
+    "player": "Krstovic",
+    "role": "A",
+    "buyer": "PeppeP",
+    "price": 67
+  },
+  {
+    "player": "Simeone",
+    "role": "A",
+    "buyer": "PeppeP",
+    "price": 61
+  },
+  {
+    "player": "Soul\u00e8",
+    "role": "A",
+    "buyer": "PeppeP",
+    "price": 16
+  },
+  {
+    "player": "Mota",
+    "role": "A",
+    "buyer": "PeppeP",
+    "price": 1
+  },
+  {
+    "player": "Noslin",
+    "role": "A",
+    "buyer": "PeppeP",
+    "price": 1
+  },
+  {
+    "player": "Milik",
+    "role": "A",
+    "buyer": "PeppeP",
+    "price": 1
+  },
+  {
+    "player": "Skorupski",
+    "role": "P",
+    "buyer": "Tot\u00f2",
+    "price": 18
+  },
+  {
+    "player": "Mandas",
+    "role": "P",
+    "buyer": "Tot\u00f2",
+    "price": 24
+  },
+  {
+    "player": "Motta",
+    "role": "P",
+    "buyer": "Tot\u00f2",
+    "price": 1
+  },
+  {
+    "player": "Gila",
+    "role": "D",
+    "buyer": "Tot\u00f2",
+    "price": 29
+  },
+  {
+    "player": "Hermoso",
+    "role": "D",
+    "buyer": "Tot\u00f2",
+    "price": 10
+  },
+  {
+    "player": "Badiashile",
+    "role": "D",
+    "buyer": "Tot\u00f2",
+    "price": 7
+  },
+  {
+    "player": "Vojvoda",
+    "role": "D",
+    "buyer": "Tot\u00f2",
+    "price": 13
+  },
+  {
+    "player": "Zappacosta",
+    "role": "D",
+    "buyer": "Tot\u00f2",
+    "price": 22
+  },
+  {
+    "player": "Joao Mario",
+    "role": "D",
+    "buyer": "Tot\u00f2",
+    "price": 1
+  },
+  {
+    "player": "Hainaut",
+    "role": "D",
+    "buyer": "Tot\u00f2",
+    "price": 1
+  },
+  {
+    "player": "Kelly L.",
+    "role": "D",
+    "buyer": "Tot\u00f2",
+    "price": 2
+  },
+  {
+    "player": "De Bruyne",
+    "role": "C",
+    "buyer": "Tot\u00f2",
+    "price": 66
+  },
+  {
+    "player": "Frattesi",
+    "role": "C",
+    "buyer": "Tot\u00f2",
+    "price": 36
+  },
+  {
+    "player": "Ciss\u00e8 A.",
+    "role": "C",
+    "buyer": "Tot\u00f2",
+    "price": 7
+  },
+  {
+    "player": "Ndour",
+    "role": "C",
+    "buyer": "Tot\u00f2",
+    "price": 6
+  },
+  {
+    "player": "Ferguson",
+    "role": "C",
+    "buyer": "Tot\u00f2",
+    "price": 10
+  },
+  {
+    "player": "Romano",
+    "role": "C",
+    "buyer": "Tot\u00f2",
+    "price": 2
+  },
+  {
+    "player": "Oristanio",
+    "role": "C",
+    "buyer": "Tot\u00f2",
+    "price": 1
+  },
+  {
+    "player": "Esposito F.P.",
+    "role": "A",
+    "buyer": "Tot\u00f2",
+    "price": 17
+  },
+  {
+    "player": "Yeboah J.",
+    "role": "A",
+    "buyer": "Tot\u00f2",
+    "price": 8
+  },
+  {
+    "player": "Ratkov",
+    "role": "A",
+    "buyer": "Tot\u00f2",
+    "price": 5
+  },
+  {
+    "player": "Raimondo",
+    "role": "A",
+    "buyer": "Tot\u00f2",
+    "price": 6
+  },
+  {
+    "player": "Trepy",
+    "role": "A",
+    "buyer": "Tot\u00f2",
+    "price": 1
+  },
+  {
+    "player": "Malen",
+    "role": "A",
+    "buyer": "Tot\u00f2",
+    "price": 163
+  },
+  {
+    "player": "Gudmundsson A.",
+    "role": "C",
+    "buyer": "Tot\u00f2",
+    "price": 31
+  }
+]

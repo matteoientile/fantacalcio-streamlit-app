@@ -37,6 +37,9 @@ DEFAULT_CONFIG = {
 # ----------------- TRANSLATIONS DICTIONARY -----------------
 TRANSLATIONS = {
     "EN": {
+        "delete_specific_label": "Delete specific logged player:",
+        "delete_btn": "🗑️ Delete Player",
+        "delete_success": "Removed {player} from draft log.",
         "lang_label": "🌐 Language / Lingua",
         "sidebar_title": "💰 Live Auction State",
         "league_settings": "⚙️ League Settings & Managers",
@@ -147,6 +150,9 @@ TRANSLATIONS = {
         "t5_no_targets": "No targets flagged yet. Add tags above to build your shortlist!"
     },
     "IT": {
+        "delete_specific_label": "Elimina giocatore assegnato per errore:",
+        "delete_btn": "🗑️ Elimina Giocatore",
+        "delete_success": "Rimosso {player} dallo storico asta.",
         "lang_label": "🌐 Language / Lingua",
         "sidebar_title": "💰 Stato Asta Live",
         "league_settings": "⚙️ Impostazioni Lega & Fantallenatori",
@@ -531,7 +537,6 @@ tab1, tab2, tab3, tab4, tab5 = st.tabs([
     t("tab4"),
     t("tab5")
 ])
-
 # ----------------- TAB 1: MASTER LISTONE & LIVE LOGGER -----------------
 with tab1:
     st.markdown(f"### {t('quick_logger')}")
@@ -583,13 +588,31 @@ with tab1:
 
     if not draft_df.empty:
         with st.expander(t("recent_history", n=len(draft_df)), expanded=False):
-            col_table, col_undo = st.columns([5, 1])
+            col_table, col_actions = st.columns([4, 2])
             with col_table:
                 st.dataframe(draft_df.iloc[::-1], use_container_width=True, hide_index=True)
-            with col_undo:
-                if st.button(t("undo_last")):
+            
+            with col_actions:
+                if st.button(t("undo_last"), use_container_width=True):
                     st.session_state.draft_log.pop()
                     save_draft_log(st.session_state.draft_log)
+                    st.rerun()
+
+                st.markdown("---")
+                
+                all_logged_players = [entry["player"] for entry in reversed(st.session_state.draft_log)]
+                player_to_remove = st.selectbox(
+                    t("delete_specific_label"),
+                    options=all_logged_players,
+                    key="t1_delete_player_select"
+                )
+                
+                if st.button(t("delete_btn"), type="secondary", use_container_width=True):
+                    st.session_state.draft_log = [
+                        entry for entry in st.session_state.draft_log if entry["player"] != player_to_remove
+                    ]
+                    save_draft_log(st.session_state.draft_log)
+                    st.success(t("delete_success", player=player_to_remove))
                     st.rerun()
 
     st.markdown("---")
